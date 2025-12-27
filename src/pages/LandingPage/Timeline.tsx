@@ -1,8 +1,8 @@
+import TimelineCard from '@components/cards/timeline/TimelineCard';
+import LandingPageContainer from '@components/container/LandingPage/LandingPageContainer';
+import { fakeDb } from '@components/fakeDB/fakeDb';
+import { TimelineSEO } from '@components/SEO/SEO';
 import React, { useState } from 'react';
-import LandingPageContainer from '@components/containers/LandingPage';
-import { TimelineSEO } from '@components/SEO';
-import TimelineCard from '@components/cards/timeline';
-import { fakeDb } from '@components/fakeDB';
 
 const Timeline: React.FC = () => {
     const [posts, setPosts] = useState(fakeDb.timelinePosts);
@@ -36,7 +36,7 @@ const Timeline: React.FC = () => {
                             <div className="w-full md:max-w-2xl">
                                 {/* Posts */}
                                 {filteredPosts.length > 0 ? (
-                                    filteredPosts.map((post) => (
+                                    filteredPosts.map((post:any) => (
                                         <TimelineCard key={post.id} post={post} onClose={() => handleClose(post.id)} />
                                     ))
                                 ) : (

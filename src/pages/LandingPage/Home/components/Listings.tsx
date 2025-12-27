@@ -1,6 +1,7 @@
 import ProductCard from '@components/cards/product/ProductCard';
 import { fakeDb } from '@components/fakeDB/fakeDb';
 import Input from '@components/forms/Input';
+
 import Select from '@components/forms/Select';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
@@ -45,8 +46,8 @@ export default function Listings() {
     return (
         <section className="py-16 bg-[#f7f8fa]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="mb-[30px]">
-                    <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-[15px]">
+                <div className="mb-7.5">
+                    <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-3.75">
                         <div className="max-w-2xl">
                             <h2 className="text-3xl md:text-[40px] font-bold text-secondary mb-4">Recent Listing</h2>
                             <p className="mt-3 text-sm text-[#6F7787] md:text-base">
@@ -72,16 +73,16 @@ export default function Listings() {
                                 value={searchTerm}
                                 onChange={handleInputChange}
                                 placeholder="Search ..."
-                                className="w-full pl-[40px]"
+                                className="w-full pl-10"
                                 aria-label="Search listings"
                             />
                         </div>
 
                         <div className="flex-1 flex w-full items-center justify-between gap-3 md:w-auto">
-                            <div className="w-[150px]">
+                            <div className="w-37.5">
                                 <Select
                                     containerClassName="flex-1"
-                                    className="rounded-[12px] border border-[#E4E7EC] bg-white text-[#1F2937]"
+                                    className="rounded-xl border border-[#E4E7EC] bg-white text-[#1F2937]"
                                     placeholder="Category"
                                     options={categoryOptions}
                                     value={selectedCategory}
@@ -90,7 +91,7 @@ export default function Listings() {
                             </div>
                             <Link
                                 to="/property-listing"
-                                className="inline-flex flex-1 min-w-[130px] items-center justify-center rounded-[12px] border border-[#66AAF9] bg-[#E6F1FE] px-6 py-[14px] text-sm font-semibold text-secondary transition-colors hover:bg-[#D9E9FF] md:flex-none"
+                                className="inline-flex flex-1 min-w-32.5 items-center justify-center rounded-xl border border-[#66AAF9] bg-[#E6F1FE] px-6 py-3.5 text-sm font-semibold text-secondary transition-colors hover:bg-[#D9E9FF] md:flex-none"
                             >
                                 View All
                             </Link>

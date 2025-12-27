@@ -5,9 +5,10 @@ import { IoEye } from 'react-icons/io5';
 import { IoIosEyeOff } from 'react-icons/io';
 import { useLoginMutation, type LoginPayload } from '@store/api/auth.api';
 import { LoginSEO } from '@components/SEO/SEO';
-import Input from '@components/forms/Input';
+
 import { useAppDispatch } from '@store/hooks';
 import { setCredentials } from '@store/slices/auth.slice';
+import Input from '@components/forms/Input';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);

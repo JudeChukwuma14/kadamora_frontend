@@ -35,11 +35,11 @@ const StepsSidebar: React.FC<Props> = ({ steps, currentIdx, listingType }) => {
                         <div key={s.id} className="relative flex items-start space-x-4">
                             {/* Vertical line */}
                             {idx !== steps.length - 1 && (
-                                <div className="absolute left-[7px] top-8 w-[2px] h-16 bg-[#E2E8F0]"></div>
+                                <div className="absolute left-1.75 top-8 w-0.5 h-16 bg-[#E2E8F0]"></div>
                             )}
 
                             {/* Circle bullet */}
-                            <div className="flex-shrink-0 mt-1">{circleBullet(active, completed)}</div>
+                            <div className="shrink-0 mt-1">{circleBullet(active, completed)}</div>
 
                             {/* Content */}
                             <div className="flex-1">

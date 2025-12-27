@@ -7,7 +7,7 @@ interface VerificationPromptProps {
 }
 
 const VerificationPrompt: React.FC<VerificationPromptProps> = ({ proceed, onClose }) => (
-    <div className="w-full sm:w-[560px] max-w-[100vw] bg-white backdrop-blur-sm rounded-3xl shadow-[0_8px_40px_-4px_rgba(16,24,40,0.15)] overflow-hidden relative animate-[fadeScale_.35s_ease]">
+    <div className="w-full sm:w-140 max-w-[100vw] bg-white backdrop-blur-sm rounded-3xl shadow-[0_8px_40px_-4px_rgba(16,24,40,0.15)] overflow-hidden relative animate-[fadeScale_.35s_ease]">
         <div className="w-full flex justify-end p-3 shadow-sm">
             <div className="">
                 <CloseButton onClick={onClose} />
@@ -18,7 +18,7 @@ const VerificationPrompt: React.FC<VerificationPromptProps> = ({ proceed, onClos
                 <img
                     src="/assets/icons/requires.svg"
                     alt="Verification required icon"
-                    className="w-[101px] h-[101px] object-contain drop-shadow-sm animate-[popIn_.55s_cubic-bezier(.4,0,.2,1)_both,softFloat_5.5s_ease-in-out_1s_infinite]"
+                    className="w-25.25 h-25.25 object-contain drop-shadow-sm animate-[popIn_.55s_cubic-bezier(.4,0,.2,1)_both,softFloat_5.5s_ease-in-out_1s_infinite]"
                     loading="lazy"
                 />
             </div>

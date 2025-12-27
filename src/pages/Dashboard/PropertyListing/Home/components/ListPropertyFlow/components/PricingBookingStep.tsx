@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from '@components/forms/input';
-import Textarea from '@components/forms/textarea';
 import { usePropertyListingForm } from '../formContext';
+import Input from '@components/forms/Input';
+import Textarea from '@components/forms/Textarea';
 
 const PricingBookingStep: React.FC = () => {
     const { state, updateField } = usePropertyListingForm();

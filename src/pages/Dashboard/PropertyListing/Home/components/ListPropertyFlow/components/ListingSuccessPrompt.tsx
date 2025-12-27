@@ -7,7 +7,7 @@ interface ListingSuccessPromptProps {
 }
 
 const ListingSuccessPrompt: React.FC<ListingSuccessPromptProps> = ({ message, onOkay }) => (
-    <div className="relative w-full sm:w-[560px] max-w-[100vw] bg-white backdrop-blur-sm rounded-3xl shadow-[0_8px_40px_-4px_rgba(16,24,40,0.15)] overflow-hidden animate-[fadeScale_.35s_ease]">
+    <div className="relative w-full sm:w-140 max-w-[100vw] bg-white backdrop-blur-sm rounded-3xl shadow-[0_8px_40px_-4px_rgba(16,24,40,0.15)] overflow-hidden animate-[fadeScale_.35s_ease]">
         <div className="w-full flex justify-end p-3 shadow-sm">
             <CloseButton onClick={onOkay} />
         </div>

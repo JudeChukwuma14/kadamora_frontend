@@ -1,8 +1,10 @@
 import React from 'react';
-import Input from '@components/forms/input';
-import Select from '@components/forms/select';
-import Textarea from '@components/forms/textarea';
+
 import { usePropertyListingForm } from '../formContext';
+
+import Select from '@components/forms/Select';
+import Textarea from '@components/forms/Textarea';
+import Input from '@components/forms/Input';
 
 const LeasePricingStep: React.FC = () => {
     const { state, updateField } = usePropertyListingForm();

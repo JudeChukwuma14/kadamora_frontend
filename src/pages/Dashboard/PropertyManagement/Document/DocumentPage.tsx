@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Select from '../../../../components/forms/select';
-import Input from '../../../../components/forms/input';
 import CardMenuItem from '../../../../components/cards/card/CardMenuItem';
 import DeleteConfirmationModal from '../../../../components/cards/card/DeleteConfirmationModal';
-import Table from '../../../../components/ui/Table';
-import type { TableHeader } from '../../../../components/ui/Table';
+
 import StatusTag from './StatusTag';
+import Input from '@components/forms/Input';
+import Select from '@components/forms/Select';
 
 const mockDocuments = [
     {
@@ -108,7 +107,7 @@ const DocumentPage: React.FC = () => {
 
     return (
         <div className="pb-10">
-            <div className="mb-6 mt-4 max-w-[1200px] mx-auto">
+            <div className="mb-6 mt-4 max-w-300 mx-auto">
                 <div className="mt-8 rounded-xl border border-[#E8F4F8] bg-white p-6">
                     <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:items-center">
                         <Select
@@ -139,7 +138,7 @@ const DocumentPage: React.FC = () => {
                             containerClassName="min-w-[140px]"
                         />
 
-                        <div className="relative flex-1 max-w-xs mt-[22px]">
+                        <div className="relative flex-1 max-w-xs mt-5.5">
                             <svg
                                 className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[#98A2B3]"
                                 viewBox="0 0 24 24"
@@ -225,7 +224,7 @@ const DocumentPage: React.FC = () => {
                                                     id={`doc-menu-${d.sn}`}
                                                     role="menu"
                                                     aria-orientation="vertical"
-                                                    className="absolute right-0 mt-2 w-[220px] bg-white border border-[#E6EEF7] rounded-xl shadow-lg ring-1 ring-black/5 py-2 z-50 overflow-hidden"
+                                                    className="absolute right-0 mt-2 w-55 bg-white border border-[#E6EEF7] rounded-xl shadow-lg ring-1 ring-black/5 py-2 z-50 overflow-hidden"
                                                 >
                                                     <CardMenuItem
                                                         label="Edit Document"
@@ -331,7 +330,7 @@ const DocumentPage: React.FC = () => {
                                                 id={`doc-menu-${d.sn}`}
                                                 role="menu"
                                                 aria-orientation="vertical"
-                                                className="absolute right-0 mt-2 w-[220px] bg-white border border-[#E6EEF7] rounded-xl shadow-lg ring-1 ring-black/5 py-2 z-50 overflow-hidden"
+                                                className="absolute right-0 mt-2 w-55 bg-white border border-[#E6EEF7] rounded-xl shadow-lg ring-1 ring-black/5 py-2 z-50 overflow-hidden"
                                             >
                                                 <CardMenuItem
                                                     label="Edit Document"

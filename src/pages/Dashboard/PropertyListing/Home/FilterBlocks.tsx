@@ -138,7 +138,7 @@ export const MobileFilterModal: React.FC<{ open: boolean; onClose: () => void }>
             role="dialog"
             aria-modal="true"
         >
-            <div className="w-[400px] max-w-full bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden animate-fade-in-up">
+            <div className="w-100 max-w-full bg-white rounded-2xl shadow-xl flex flex-col overflow-hidden animate-fade-in-up">
                 <div className="flex items-center justify-between px-6 py-4 border-b border-[#E3ECF5]">
                     <h3 className="text-[#0A2D50] text-[15px] font-semibold">Filters</h3>
                     <button

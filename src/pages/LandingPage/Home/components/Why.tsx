@@ -38,12 +38,12 @@ export default function Why() {
                         <h2 className="text-3xl md:text-[50px] font-bold mb-8 ">Why Kadamora ?</h2>
                         <div className="space-y-6">
                             {whyKadamora.map((item, index) => (
-                                <div key={index} className="flex space-x-3 mb-[25px]">
+                                <div key={index} className="flex space-x-3 mb-6.25">
                                     <div className="mt-2 mr-2">
                                         <img
                                             src="/assets/icons/check_mark_big.png"
                                             alt="Check"
-                                            className="w-[30px] h-[30px]"
+                                            className="w-7.5 h-7.5"
                                         />
                                     </div>
                                     <div className="flex-1">
@@ -60,14 +60,14 @@ export default function Why() {
                         <img
                             src="/assets/chart-badge-left.png"
                             alt="Chart Badge Left"
-                            className="absolute bottom-0 left-[-65px] z-10"
+                            className="absolute bottom-0 -left-16.25 z-10"
                         />
 
                         {/* Top right badge */}
                         <img
                             src="/assets/chart-badge-right.png"
                             alt="Chart Badge Right"
-                            className="absolute top-[30px] right-[-75px] z-10"
+                            className="absolute top-7.5 -right-18.75 z-10"
                         />
 
                         {/* Main chart image */}

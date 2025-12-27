@@ -3,9 +3,11 @@ import CloseButton from './CloseButton';
 import { registerAgent, type RegisterAgentPayload } from '@utils/api/propertyAgents';
 import { isAxiosError } from 'axios';
 import StepProgress from './StepProgress';
-import Input from '../../../../../../../components/forms/Input';
-import Select from '../../../../../../../components/forms/Select';
-import Textarea from '../../../../../../../components/forms/Textarea';
+
+import Select from '@components/forms/Select';
+import Textarea from '@components/forms/Textarea';
+import Input from '@components/forms/Input';
+
 
 interface ProfessionalDetailsFormProps {
     next: () => void;
@@ -138,7 +140,7 @@ const ProfessionalDetailsForm: React.FC<ProfessionalDetailsFormProps> = ({ next,
     const errorInputClass = 'border-red-400 focus:ring-red-400/60 focus:border-red-400';
 
     return (
-        <div className="w-full md:w-[1180px] lg:w-[1240px] max-w-[96vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-[700px]">
+        <div className="w-full md:w-295 lg:w-310 max-w-[96vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-175">
             {/* Desktop sidebar, hidden on mobile */}
             <div className="hidden md:block">
                 <StepProgress current={current} />
@@ -245,11 +247,11 @@ const ProfessionalDetailsForm: React.FC<ProfessionalDetailsFormProps> = ({ next,
                                 value={formValues.bio}
                                 onChange={(event) => updateField('bio', event.target.value)}
                                 placeholder="Enter bio"
-                                className="min-h-[110px] placeholder:font-medium placeholder:text-[#52525B]"
+                                className="min-h-27.5 placeholder:font-medium placeholder:text-[#52525B]"
                             />
                         </div>
                     </div>
-                    <div className="bg-white md:px-10 px-3 md:py-5 py-0 pb-[10px] border-t border-[#EDF1F5] flex flex-col md:flex-row md:items-center md:justify-between gap-3 sticky md:static bottom-0 z-10">
+                    <div className="bg-white md:px-10 px-3 md:py-5 py-0 pb-2.5 border-t border-[#EDF1F5] flex flex-col md:flex-row md:items-center md:justify-between gap-3 sticky md:static bottom-0 z-10">
                         {submitError && <p className="text-sm text-red-500 font-medium md:mr-auto">{submitError}</p>}
                         <button
                             type="submit"

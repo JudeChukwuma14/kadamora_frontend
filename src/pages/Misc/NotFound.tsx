@@ -22,7 +22,7 @@ export default function NotFound() {
     }, [account, location.pathname]);
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#F7FBFF] via-white to-[#F8FBFF] px-6 text-center">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-[#F7FBFF] via-white to-[#F8FBFF] px-6 text-center">
             <div className="max-w-xl">
                 <span className="inline-flex items-center justify-center rounded-full bg-[#E6F9F0] px-4 py-2 text-[13px] font-semibold text-[#0A7D47] mb-6">
                     404 • Page Not Found
@@ -54,7 +54,7 @@ export default function NotFound() {
             <img
                 src="/assets/illustrations/not-found.svg"
                 alt="Explorer searching for properties"
-                className="mt-12 max-w-[480px] w-full"
+                className="mt-12 max-w-120 w-full"
                 onError={(event) => {
                     const target = event.currentTarget as HTMLImageElement;
                     target.style.display = 'none';

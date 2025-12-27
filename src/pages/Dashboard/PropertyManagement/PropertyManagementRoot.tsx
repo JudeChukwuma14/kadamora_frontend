@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react';
 import { Route, Routes, NavLink, useLocation } from 'react-router';
-import OverviewPage from './Overview';
-import PropertiesPage from './Properties';
 import AddPropertyFlowModal from './Properties/components/AddPropertyFlowModal';
-import TenantsPage from './Tenant';
-import AddTenantModal from './Tenant/components/AddTenantModal';
-import MaintenancePage from './Maintainance';
-import CommunicationPage from './Communication';
 import CreateAnnouncementModal from './Communication/components/CreateAnnouncementModal';
-import DocumentPage from './Document';
-import SettingsPage from './Settings';
+import OverviewPage from './Overview/OverviewPage';
+import PropertiesPage from './Properties/PropertiesPage';
+import TenantsPage from './Tenant/TenantsPage';
+import AddTenantModal from './Tenant/components/AddTenantModal';
+import MaintenancePage from './Maintainance/MaintenancePage';
+import CommunicationPage from './Communication/CommunicationPage';
+import DocumentPage from './Document/DocumentPage';
+import SettingsPage from './Settings/SettingsPage';
 
 const tabs = ['Overview', 'Properties', 'Tenants', 'Maintenance', 'Communication', 'Documents', 'Settings'];
 
@@ -89,7 +89,7 @@ const PropertyManagementRoot: React.FC = () => {
             <AddPropertyFlowModal open={modals.addProperty} onClose={() => closeModal('addProperty')} />
             <AddTenantModal open={modals.addTenant} onClose={() => closeModal('addTenant')} />
             <CreateAnnouncementModal open={modals.announcement} onClose={() => closeModal('announcement')} />
-            <div className="mb-6 mt-4 max-w-[1200px] mx-auto">
+            <div className="mb-6 mt-4 max-w-300 mx-auto">
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-[25px] font-semibold text-[#002E62] leading-snug">Property Management</h1>
@@ -149,7 +149,7 @@ const PropertyManagementRoot: React.FC = () => {
                 </div>
             </div>
 
-            <div className="max-w-[1200px] mx-auto">
+            <div className="max-w-300 mx-auto">
                 <Routes>
                     <Route index element={<OverviewPage />} />
                     <Route path="properties" element={<PropertiesPage />} />

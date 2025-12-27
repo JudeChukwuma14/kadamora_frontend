@@ -62,7 +62,7 @@ export default function Testimonials() {
                     <h2 className="text-3xl md:text-[40px] font-bold text-secondary mb-4 text-center">
                         What people Say About Us
                     </h2>
-                    <p className="text-gray-600 max-w-[600px] text-center">
+                    <p className="text-gray-600 max-w-150 text-center">
                         Lorem ipsum dolor sit amet consectetur. Rutrum risus consequat interdum tempus sapien sed amet
                         dignissim aliquam. Consequat adipiscing et venenatis ultricies ut vestibulum.
                     </p>
@@ -76,7 +76,7 @@ export default function Testimonials() {
                             {fakeDb.testimonials.map((testimonial) => (
                                 <div
                                     key={testimonial.id}
-                                    className="bg-white rounded-lg border border-gray-200 p-6 w-[450px] flex-shrink-0 relative overflow-hidden"
+                                    className="bg-white rounded-lg border border-gray-200 p-6 w-112.5 shrink-0 relative overflow-hidden"
                                 >
                                     {/* Background vector image */}
                                     <div className="absolute bottom-0 right-0 pointer-events-none">
@@ -108,8 +108,8 @@ export default function Testimonials() {
                     </div>
 
                     {/* Navigation Buttons */}
-                    <div className="flex justify-start items-center mt-[25px]">
-                        <div className="mr-[15px]">
+                    <div className="flex justify-start items-center mt-6.25">
+                        <div className="mr-3.75">
                             <button
                                 onClick={scrollToPrevious}
                                 disabled={!canScrollLeft}

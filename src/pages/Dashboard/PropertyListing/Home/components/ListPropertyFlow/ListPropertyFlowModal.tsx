@@ -21,7 +21,7 @@ import {
     type CreatePropertyListingPayload,
     type PropertyFacilitiesPayload,
     type PropertyMediaPayload,
-} from '@utils/api/propertyListings';
+} from '@store/api/propertyListings.ts';
 import CloseButton from '../OnboardingAgent/components/CloseButton.tsx';
 import { uploadFileToStorage } from '../../../../../../utils/firebaseStorage.ts';
 import { PropertyListingFormProvider, usePropertyListingForm, type FacilitySelection, type PropertyListingFormState } from './formContext.tsx';
@@ -195,7 +195,7 @@ const ListPropertyFlowModal: React.FC<Props> = ({ open, onClose }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
             <style>{`@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}`}</style>
             {!showSuccessPrompt && !listingType && (
-                <div className="relative w-full max-w-[800px] min-h-[30vh] rounded-[12px] bg-white shadow-xl overflow-hidden animate-[fadeIn_.25s_ease] flex flex-col max-h-[90vh] md:max-h-none">
+                <div className="relative w-full max-w-200 min-h-[30vh] rounded-xl bg-white shadow-xl overflow-hidden animate-[fadeIn_.25s_ease] flex flex-col max-h-[90vh] md:max-h-none">
                     <ListingTypeSelection
                         listingTypes={LISTING_TYPES}
                         onSelect={(type) => {
@@ -288,7 +288,7 @@ const ListingFormContent: React.FC<ListingFormContentProps> = ({
     };
 
     return (
-        <div className="w-full md:w-[1180px] lg:w-[1240px] max-w-[96vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-[700px]">
+        <div className="w-full md:w-295 lg:w-310 max-w-[96vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-175">
             <div className="hidden md:block w-[35%]">
                 <StepsSidebar steps={steps} currentIdx={currentIdx} listingType={listingType} />
             </div>
@@ -301,7 +301,7 @@ const ListingFormContent: React.FC<ListingFormContentProps> = ({
             </div>
 
             <div className="flex-1 flex flex-col md:max-h-none max-h-[80vh]">
-                <div className="h-[70px] md:flex hidden items-center justify-between pl-10 pr-6 border-b border-[#EDF1F5] bg-white/70 backdrop-blur-sm">
+                <div className="h-17.5 md:flex hidden items-center justify-between pl-10 pr-6 border-b border-[#EDF1F5] bg-white/70 backdrop-blur-sm">
                     <h3 className="text-[20px] font-semibold text-[#001731]">{activeStep?.title}</h3>
                     <CloseButton onClick={() => (!isSubmitting ? onClose() : undefined)} />
                 </div>

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import ServiceCard from './ServiceCard';
-import { useAuth } from '@store/useAuthStore';
+
 import { services } from './service';
+import { useAuth } from '@store/useAuthStore';
 
 export default function Dashboard() {
     const [searchQuery] = useState('');
@@ -37,7 +38,7 @@ export default function Dashboard() {
                     </div>
                     <button
                         onClick={() => setShowWelcome(false)}
-                        className="w-[83px] mt-[12px] flex items-center text-[#41A36E] text-[15px] font-semibold"
+                        className="w-[83px] mt-3 flex items-center text-[#41A36E] text-[15px] font-semibold"
                     >
                         Okay, Got It
                     </button>

@@ -35,12 +35,12 @@ export default function Services() {
                         </div>
                     </div>
                     {/* Navigation Buttons */}
-                    <div className="flex justify-end items-center mt-[25px]">
-                        <div className="mr-[15px]">
+                    <div className="flex justify-end items-center mt-6.25">
+                        <div className="mr-3.75">
                             <button
                                 onClick={() => scrollBy(-1)}
                                 aria-label="Scroll left"
-                                className="w-12 h-12 bg-white rounded-full border border-[#BABABA] flex items-center justify-center transition-colors transition-transform duration-150 active:scale-95 group hover:border-[#43CC88] hover:bg-[#E6FAF3] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                                className="w-12 h-12 bg-white rounded-full border border-[#BABABA] flex items-center justify-center transition-colors duration-150 active:scale-95 group hover:border-[#43CC88] hover:bg-[#E6FAF3] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                             >
                                 <svg
                                     className="w-6 h-6 text-[#BABABA] group-hover:text-[#43CC88] transition-transform duration-150 group-active:-translate-x-0.5"
@@ -62,7 +62,7 @@ export default function Services() {
                             <button
                                 onClick={() => scrollBy(1)}
                                 aria-label="Scroll right"
-                                className="w-12 h-12 bg-white rounded-full border border-[#BABABA] flex items-center justify-center hover:bg-[#E6FAF3] transition-colors transition-transform duration-150 active:scale-95 group hover:border-[#43CC88] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+                                className="w-12 h-12 bg-white rounded-full border border-[#BABABA] flex items-center justify-center hover:bg-[#E6FAF3] transition-colors duration-150 active:scale-95 group hover:border-[#43CC88] focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
                             >
                                 <svg
                                     className="w-6 h-6 text-[#BABABA] group-hover:text-[#43CC88] transition-transform duration-150 group-active:translate-x-0.5"

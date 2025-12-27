@@ -18,7 +18,7 @@ const stepsData = [
 ];
 
 const StepProgress: React.FC<StepProgressProps> = ({ current }) => (
-    <aside className="w-[420px] min-w-[420px] h-full bg-[#F6FAFF] flex flex-col justify-start px-10 pt-16 pb-0 rounded-tl-2xl rounded-bl-2xl">
+    <aside className="w-105 min-w-105 h-full bg-[#F6FAFF] flex flex-col justify-start px-10 pt-16 pb-0 rounded-tl-2xl rounded-bl-2xl">
         <div className="text-[23px] font-bold leading-tight text-[#0F172A] mb-14">
             Become an <span className="text-[#16A34A]">Agent/Realtor</span>
         </div>
@@ -45,7 +45,7 @@ const StepProgress: React.FC<StepProgressProps> = ({ current }) => (
                             </span>
                             {!isLast && (
                                 <span
-                                    className={`block w-[2px] mt-[2px] h-[82px] ${active || completed ? 'bg-[#16A34A]' : 'bg-[#C7D2E7]'}`}
+                                    className={`block w-0.5 mt-0.5 h-20.5 ${active || completed ? 'bg-[#16A34A]' : 'bg-[#C7D2E7]'}`}
                                 />
                             )}
                         </div>
@@ -56,7 +56,7 @@ const StepProgress: React.FC<StepProgressProps> = ({ current }) => (
                             >
                                 {s.title}
                             </p>
-                            <p className="text-[12px] leading-[1.55] tracking-[0.2px] text-[#3F3F46] max-w-[640px]">
+                            <p className="text-[12px] leading-[1.55] tracking-[0.2px] text-[#3F3F46] max-w-160">
                                 {s.desc}
                             </p>
                         </div>

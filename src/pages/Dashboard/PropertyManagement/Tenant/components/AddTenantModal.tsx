@@ -1,6 +1,7 @@
+import Input from '@components/forms/Input';
+import Select from '@components/forms/Select';
 import React, { useState } from 'react';
-import Input from '../../../../../components/forms/Input';
-import Select from '../../../../../components/forms/Select';
+
 
 
 interface AddTenantModalProps {

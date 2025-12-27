@@ -1,7 +1,9 @@
+
+import Input from '@components/forms/Input';
+import Select from '@components/forms/Select';
+import Textarea from '@components/forms/Textarea';
 import React, { useState } from 'react';
-import Input from '../../../../../components/forms/input';
-import Select from '../../../../../components/forms/select';
-import Textarea from '../../../../../components/forms/textarea';
+
 
 interface CreateAnnouncementModalProps {
     open: boolean;

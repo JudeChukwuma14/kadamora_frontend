@@ -109,12 +109,12 @@ const OverviewPage: React.FC = () => {
 
     return (
         <div className="pb-10">
-            <div className="mb-6 mt-4 mx-auto max-w-screen-xl">
+            <div className="mb-6 mt-4 mx-auto max-w-7xl">
                 {/* Main columns */}
                 <div className="mt-6 flex flex-col md:flex-row gap-6">
                     <div>
                         {/* Stats */}
-                        <div className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2 mb-[15px]">
+                        <div className="mt-6 grid gap-4 grid-cols-1 md:grid-cols-2 mb-3.75">
                             {stats.map((s) => (
                                 <StatCard key={s.id} title={s.title} value={s.value} icon={s.icon} />
                             ))}

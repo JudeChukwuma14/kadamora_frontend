@@ -1,9 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
-
 import { mockProperties } from './fakedb';
-
-import { getAgentProfile, type AgentProfile } from '@utils/api/propertyAgents';
 import { isAxiosError } from 'axios';
 import FilterBlocks, { MobileFilterModal } from './FilterBlocks';
 import ProductCard from '../../../../components/cards/product/ProductCard';
@@ -11,7 +8,7 @@ import QuickActionCard from './components/QuickActionCard';
 import OnboardingAgentFlowModal from './components/OnboardingAgent/OnboardingAgentFlowModal';
 import VerificationInProgressModal from './components/VerificationInProgressModal';
 import ListPropertyFlowModal from './components/ListPropertyFlow/ListPropertyFlowModal';
-
+import { getAgentProfile, type AgentProfile } from '@utils/api/propertyAgents';
 const formatCurrency = (n: number) =>
     new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 2 }).format(n);
 
@@ -213,7 +210,7 @@ const PropertyManagementPage: React.FC = () => {
             {/* Quick Actions */}
             <section className="mb-10">
                 <div className="flex md:justify-between md:flex-row flex-col md:items-center mb-5">
-                    <div className="text-[#001731] font-semibold text-[17px] md:mb-0 mb-[15px]">Quick Actions</div>
+                    <div className="text-[#001731] font-semibold text-[17px] md:mb-0 mb-3.75">Quick Actions</div>
                     <div
                         className={`${verificationToneClasses[verificationCopy.tone]} font-semibold flex items-center gap-2`}
                     >
@@ -292,14 +289,14 @@ const PropertyManagementPage: React.FC = () => {
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}
                                     placeholder="Search anything"
-                                    className="w-full rounded-[24px] border border-[#E0E7FF] bg-white py-3 pl-12 pr-4 text-[15px] text-[#0A2D50] shadow-[0_6px_20px_rgba(10,45,80,0.08)] transition focus:border-[#0A2D50] focus:outline-none focus:ring-2 focus:ring-[#0A2D50]/15"
+                                    className="w-full rounded-3xl border border-[#E0E7FF] bg-white py-3 pl-12 pr-4 text-[15px] text-[#0A2D50] shadow-[0_6px_20px_rgba(10,45,80,0.08)] transition focus:border-[#0A2D50] focus:outline-none focus:ring-2 focus:ring-[#0A2D50]/15"
                                 />
                             </div>
                             <div className="md:hidden">
                                 <button
                                     type="button"
                                     onClick={() => setMobileFiltersOpen(true)}
-                                    className="grid h-[50px] w-[50px] place-items-center rounded-[7px] bg-[#04194E] text-white shadow-[0_8px_20px_rgba(4,25,78,0.25)] transition hover:bg-[#072968] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                                    className="grid h-12.5 w-12.5 place-items-center rounded-[7px] bg-[#04194E] text-white shadow-[0_8px_20px_rgba(4,25,78,0.25)] transition hover:bg-[#072968] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
                                     aria-label="Open filters"
                                 >
                                     <svg

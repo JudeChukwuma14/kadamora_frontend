@@ -71,29 +71,29 @@ const statData = [
 
 const tabList = ['Messages', 'Announcements'] as const;
 
-const messages = [
-    {
-        name: 'Rent Remainder',
-        subtitle: 'John Smith',
-        lastMessage: 'Hi John, this is a friendly reminder that your rent payment for unit Diamond A is due tomorrow',
-        time: '19 July,2025 11:30 AM',
-        unreadCount: 0,
-    },
-    {
-        name: 'AC Issue follow up',
-        subtitle: 'Sarah Johnson',
-        lastMessage: 'Thank you for scheduling the AC repair. When can I expect the technician to arrive?',
-        time: '19 July,2025 1:30 PM',
-        unreadCount: 1,
-    },
-    {
-        name: 'Rent Remainder',
-        subtitle: 'Charles David',
-        lastMessage: 'Hi John, this is a friendly reminder that your rent payment for unit Diamond A is due tomorrow',
-        time: '18 July,2025 11:30 AM',
-        unreadCount: 0,
-    },
-];
+// const messages = [
+//     {
+//         name: 'Rent Remainder',
+//         subtitle: 'John Smith',
+//         lastMessage: 'Hi John, this is a friendly reminder that your rent payment for unit Diamond A is due tomorrow',
+//         time: '19 July,2025 11:30 AM',
+//         unreadCount: 0,
+//     },
+//     {
+//         name: 'AC Issue follow up',
+//         subtitle: 'Sarah Johnson',
+//         lastMessage: 'Thank you for scheduling the AC repair. When can I expect the technician to arrive?',
+//         time: '19 July,2025 1:30 PM',
+//         unreadCount: 1,
+//     },
+//     {
+//         name: 'Rent Remainder',
+//         subtitle: 'Charles David',
+//         lastMessage: 'Hi John, this is a friendly reminder that your rent payment for unit Diamond A is due tomorrow',
+//         time: '18 July,2025 11:30 AM',
+//         unreadCount: 0,
+//     },
+// ];
 
 const announcements = [
     {
@@ -126,7 +126,7 @@ const CommunicationPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState<(typeof tabList)[number]>('Messages');
     return (
         <div className="pb-10">
-            <div className="mb-6 mt-4 max-w-[1200px] mx-auto">
+            <div className="mb-6 mt-4 max-w-300 mx-auto">
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                     {statData.map((s) => (
                         <StatCard key={s.label} label={s.label} value={s.value} icon={s.icon} />

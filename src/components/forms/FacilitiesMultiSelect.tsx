@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Input from './Input';
 
+
 interface Facility {
     label: string;
     value: string;
@@ -106,7 +107,7 @@ export default function FacilitiesMultiSelect({
                         {getDisplayText()}
                     </span>
                     <svg
-                        className={`h-4 w-4 text-[#64748B] transition-transform duration-200 flex-shrink-0 ml-2 ${
+                        className={`h-4 w-4 text-[#64748B] transition-transform duration-200 shrink-0 ml-2 ${
                             isOpen ? 'rotate-180' : ''
                         }`}
                         viewBox="0 0 24 24"

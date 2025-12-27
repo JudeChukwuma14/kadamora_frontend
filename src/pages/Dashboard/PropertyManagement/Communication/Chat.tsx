@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import MessageCard from './MessageCard';
-import Input from '../../../../components/forms/input';
+
 import './styles/chat.css';
 import { getChats, getMessages, sendMessage } from './fakeDB';
 import type { ChatSummary } from './fakeDB';
+import Input from '@components/forms/Input';
 
 const Chat: React.FC = () => {
     const [chats] = useState<ChatSummary[]>(getChats());
@@ -38,7 +39,7 @@ const Chat: React.FC = () => {
         <div className="flex h-[80vh] bg-white rounded-2xl shadow-lg overflow-hidden flex-col md:flex-row">
             {/* Sidebar Chat List (left) */}
             <aside
-                className={`md:w-[340px] min-w-[260px] max-w-[360px] border-r border-[#EDF1F5] flex flex-col bg-white z-20 md:static fixed top-0 left-0 h-full md:h-auto transition-transform duration-200 ${showList ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}
+                className={`md:w-85 min-w-65 max-w-90 border-r border-[#EDF1F5] flex flex-col bg-white z-20 md:static fixed top-0 left-0 h-full md:h-auto transition-transform duration-200 ${showList ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}
             >
                 <div className="flex items-center gap-8 px-6 pt-6 pb-2">
                     <button className="text-[17px] font-semibold text-[#002E62] border-b-2 border-[#002E62] pb-2">
@@ -51,7 +52,7 @@ const Chat: React.FC = () => {
                     <div className="flex items-center gap-2">
                         <Input
                             placeholder="Search"
-                            className="!py-2 !text-[15px]"
+                            className="py-2! text-[15px]!"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -163,7 +164,7 @@ const Chat: React.FC = () => {
                     style={{ boxShadow: '0px -1px 0px #EDF1F5' }}
                 >
                     <textarea
-                        className="w-full resize-none border-none outline-none bg-transparent px-4 md:px-8 pt-4 text-[15px] text-[#101828] placeholder-[#98A2B3] min-h-[48px] max-h-[120px] focus:ring-0"
+                        className="w-full resize-none border-none outline-none bg-transparent px-4 md:px-8 pt-4 text-[15px] text-[#101828] placeholder-[#98A2B3] min-h-12 max-h-30 focus:ring-0"
                         placeholder="Write a message ..."
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}

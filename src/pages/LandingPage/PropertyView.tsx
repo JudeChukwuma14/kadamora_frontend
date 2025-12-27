@@ -1,7 +1,8 @@
-import { fakeDb } from '@components/fakeDB/index';
-import ProductCard from '@components/cards/product';
-import Gallery from '@components/cards/gallery';
-import LandingPageContainer from '@components/containers/LandingPage';
+import Gallery from "@components/cards/gallery/Gallery";
+import ProductCard from "@components/cards/product/ProductCard";
+import LandingPageContainer from "@components/container/LandingPage/LandingPageContainer";
+import { fakeDb } from "@components/fakeDB/fakeDb";
+
 
 export default function PropertyView() {
     const amenities = [
@@ -66,7 +67,7 @@ export default function PropertyView() {
 
                             <p className="text-sm mb-4">6-bedroom Apartment in Lagos</p>
 
-                            <p className="mb-6 leading-[30px] text-[#6E6D6D]">
+                            <p className="mb-6 leading-7.5 text-[#6E6D6D]">
                                 Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a
                                 odio magna condimentum. amet eget aliquam cursus placerat. Felis morbi arut sed
                                 cursibhur auismod a odio magna condimentum.
@@ -92,7 +93,7 @@ export default function PropertyView() {
                                     {facilities.map((facility, index) => (
                                         <div
                                             key={index}
-                                            className="w-[138px] h-[81px] mx-auto flex flex-col items-center justify-center shadow-border rounded-lg hover:border-primary transition-colors"
+                                            className="w-34.5 h-20.25 mx-auto flex flex-col items-center justify-center shadow-border rounded-lg hover:border-primary transition-colors"
                                         >
                                             <img
                                                 src="/assets/icons/bed.png"
@@ -110,7 +111,7 @@ export default function PropertyView() {
                             {/* Interest Button */}
                             <div className="mb-6">
                                 <p className="font-medium mb-2 text-secondary">Are you interested in this Property?</p>
-                                <button className="w-[150px] h-[45px] bg-secondary text-white rounded-lg font-medium">
+                                <button className="w-37.5 h-11.25 bg-secondary text-white rounded-lg font-medium">
                                     Message Agent
                                 </button>
                             </div>

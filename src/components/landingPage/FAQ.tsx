@@ -14,7 +14,7 @@ export default function FAQ() {
                     <h2 className="text-3xl md:text-[40px] text-center font-bold text-secondary mb-4 animate-fade-in-up">
                         Frequently Asked Question
                     </h2>
-                    <p className="max-w-[500px] text-center animate-fade-in-up animation-delay-200">
+                    <p className="max-w-125 text-center animate-fade-in-up animation-delay-200">
                         Here is a list of frequently asked questions. Simply tap on any question to reveal its answer
                         and gain more information.
                     </p>
@@ -37,7 +37,7 @@ export default function FAQ() {
                                         {faq.question}
                                     </h3>
                                     <div
-                                        className={`text-2xl transition-all duration-300 ease-in-out flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                                        className={`text-2xl transition-all duration-300 ease-in-out shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                                             openFAQ === index
                                                 ? 'transform rotate-45'
                                                 : 'text-gray-400 hover:text-primary hover:bg-gray-100'

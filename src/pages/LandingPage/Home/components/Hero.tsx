@@ -64,12 +64,12 @@ export default function Hero() {
                             <img
                                 src={slide.src}
                                 alt={slide.alt}
-                                className={`h-full w-full object-cover transition-transform duration-[2000ms] ease-in-out ${
+                                className={`h-full w-full object-cover transition-transform duration-2000 ease-in-out ${
                                     isActive ? 'scale-100' : 'scale-105'
                                 }`}
                             />
                             <div
-                                className={`absolute inset-0 bg-gradient-to-r ${slide.overlayClass} transition-opacity duration-700 ${
+                                className={`absolute inset-0 bg-linear-to-r ${slide.overlayClass} transition-opacity duration-700 ${
                                     isActive ? 'opacity-100' : 'opacity-0'
                                 }`}
                             />
@@ -112,12 +112,12 @@ export default function Hero() {
             ) : null}
 
             {/* Hero Content */}
-            <div className="relative z-10 mx-auto flex min-h-[70vh] max-w-7xl items-end px-4 pb-[50px] pt-[120px] sm:px-6 lg:px-8">
+            <div className="relative z-10 mx-auto flex min-h-[70vh] max-w-7xl items-end px-4 pb-12.5 pt-30 sm:px-6 lg:px-8">
                 <div className="grid w-full items-end gap-12 lg:grid-cols-2">
                     {/* Left side - Text content */}
                     <div className="max-w-2xl">
-                        <div className="flex h-[30px] w-[220px] items-center rounded-[50px] bg-[rgba(57,55,53,0.65)] pl-[10px] backdrop-blur-md">
-                            <img src="/assets/icons/check_mark.png" alt="Check" className="mr-2 h-[16px] w-[16px]" />
+                        <div className="flex h-7.5 w-55 items-center rounded-[50px] bg-[rgba(57,55,53,0.65)] pl-2.5 backdrop-blur-md">
+                            <img src="/assets/icons/check_mark.png" alt="Check" className="mr-2 h-4 w-4" />
                             <span className="text-white font-medium">Smart Kadamora</span>
                         </div>
                         <div className="mb-6 text-4xl font-bold text-white md:text-[50px]">
@@ -128,7 +128,7 @@ export default function Hero() {
                     {/* Right side - Information card */}
                     <div className="block justify-end lg:flex">
                         <div className="rounded-lg p-0 lg:p-6">
-                            <p className="mb-4 text-white leading-[28px]">
+                            <p className="mb-4 text-white leading-7">
                                 Our all-in-one real estate management system simplifies property listings, tenant
                                 communication, maintenance tracking, and financial reporting. Whether you manage
                                 residential, commercial, or mixed-use spaces

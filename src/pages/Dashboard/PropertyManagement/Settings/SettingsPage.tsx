@@ -87,9 +87,9 @@ const SettingsPage: React.FC = () => {
 
     return (
         <div className="min-h-screen pb-10 bg-[#F8FCFA]">
-            <div className="max-w-[1200px] mx-auto pt-8">
+            <div className="max-w-300 mx-auto pt-8">
                 <div className="flex flex-wrap gap-6 mt-6">
-                    <div className="flex-1 min-w-[350px] flex flex-col gap-6">
+                    <div className="flex-1 min-w-87.5 flex flex-col gap-6">
                         {notificationSettings.map((section) =>
                             section.title === 'Rent Collection Setting' ? (
                                 <div key={section.title} className="rounded-2xl border border-[#D6E6F2] bg-white p-8">
@@ -118,7 +118,7 @@ const SettingsPage: React.FC = () => {
                                         </span>
                                     </div>
                                     <div className="space-y-7">
-                                        {section.items.map((item, idx) => (
+                                        {section.items.map((item) => (
                                             <div key={item.label}>
                                                 <div className="flex items-center justify-between mb-1">
                                                     <div className="font-bold text-[#002E62] text-[20px]">
@@ -291,7 +291,7 @@ const SettingsPage: React.FC = () => {
                             ),
                         )}
                     </div>
-                    <div className="w-full md:w-[420px] min-w-[320px]">
+                    <div className="w-full md:w-105 min-w-[320px]">
                         <div className="rounded-2xl border border-[#D6E6F2] bg-white p-6 shadow-sm">
                             <div className="flex items-center justify-between mb-6">
                                 <div className="flex items-center gap-3">

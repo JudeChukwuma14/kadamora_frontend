@@ -1,9 +1,10 @@
+import Input from '@components/forms/Input';
+import RadioGroup from '@components/forms/RadioGroup';
+import Select from '@components/forms/Select';
+import StepsSidebar from '@pages/Dashboard/PropertyListing/Home/components/ListPropertyFlow/components/StepsSidebar';
+import CloseButton from '@pages/Dashboard/PropertyListing/Home/components/OnboardingAgent/components/CloseButton';
 import React, { useState, useCallback, useEffect } from 'react';
-import CloseButton from '../../../PropertyListing/Home/components/ListPropertyFlow/components/CloseButton';
-import StepsSidebar from '../../../PropertyListing/Home/components/ListPropertyFlow/components/StepsSidebar';
-import Input from '../../../../../components/forms/Input';
-import Select from '../../../../../components/forms/Select';
-import RadioGroup from '../../../../../components/forms/RadioGroup';
+
 
 
 interface StepDef {
@@ -59,13 +60,13 @@ const AddPropertyFlowModal: React.FC<{ open: boolean; onClose: () => void }> = (
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
             <style>{`@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}`}</style>
-            <div className="relative w-full max-w-[900px] min-h-[30vh] rounded-[12px] bg-white shadow-xl overflow-hidden animate-[fadeIn_.25s_ease] flex flex-col max-h-[90vh] md:max-h-none">
-                <div className="w-full md:w-[900px] max-w-[96vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-[600px]">
+            <div className="relative w-full max-w-225 min-h-[30vh] rounded-xl bg-white shadow-xl overflow-hidden animate-[fadeIn_.25s_ease] flex flex-col max-h-[90vh] md:max-h-none">
+                <div className="w-full md:w-225 max-w-[96vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-150">
                     <div className="hidden md:block w-[35%]">
                         <StepsSidebar steps={steps} currentIdx={currentIdx} listingType="Management" />
                     </div>
                     <div className="flex-1 flex flex-col md:max-h-none max-h-[80vh]">
-                        <div className="h-[70px] md:flex hidden items-center justify-between pl-10 pr-6 border-b border-[#EDF1F5] bg-white/70 backdrop-blur-sm">
+                        <div className="h-17.5 md:flex hidden items-center justify-between pl-10 pr-6 border-b border-[#EDF1F5] bg-white/70 backdrop-blur-sm">
                             <h3 className="text-[20px] font-semibold text-[#001731]">{steps[currentIdx].title}</h3>
                             <CloseButton onClick={handleClose} />
                         </div>

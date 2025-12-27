@@ -32,7 +32,7 @@ export default function PhoneNumberInput({
             ) : null}
 
             {/* Styled wrapper to match design */}
-            <div className="relative rounded-lg border border-[#E0DEF7] bg-[#F7F7FD] px-2 py-[6px] focus-within:ring-2 focus-within:ring-[#002E62]/70 focus-within:border-transparent focus-within:bg-white transition-colors">
+            <div className="relative rounded-lg border border-[#E0DEF7] bg-[#F7F7FD] px-2 py-1.5 focus-within:ring-2 focus-within:ring-[#002E62]/70 focus-within:border-transparent focus-within:bg-white transition-colors">
                 {/* Divider after country button */}
                 <span className="pointer-events-none absolute left-14 top-1/2 -translate-y-1/2 h-6 border-l border-[#E6EAF2]" />
 

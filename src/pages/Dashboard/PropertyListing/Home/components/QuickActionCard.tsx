@@ -47,12 +47,12 @@ const QuickActionCard: React.FC<{
             {/* Icon cluster */}
             <div className="relative flex items-start pb-1">
                 <div
-                    className={`relative flex h-[50px] w-[50px] items-center justify-center rounded-full border border-[#CBEEDB] bg-[#F5FCF9] ${disabled ? '' : 'transition-transform duration-300 ease-out group-hover:scale-[1.07] group-hover:rotate-[4deg]'}`}
+                    className={`relative flex h-12.5 w-12.5 items-center justify-center rounded-full border border-[#CBEEDB] bg-[#F5FCF9] ${disabled ? '' : 'transition-transform duration-300 ease-out group-hover:scale-[1.07] group-hover:rotate-[4deg]'}`}
                 >
                     {!disabled && (
                         <span className="pointer-events-none absolute inset-0 rounded-full bg-emerald-300/40 opacity-0 group-hover:animate-ping group-hover:opacity-60" />
                     )}
-                    <div className="relative flex h-[40px] w-[40px] items-center justify-center rounded-full text-emerald-600">
+                    <div className="relative flex h-10 w-10 items-center justify-center rounded-full text-emerald-600">
                         {icon || (
                             <svg
                                 viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ const QuickActionCard: React.FC<{
                     {title}
                 </p>
                 <p
-                    className={`text-[13px] leading-snug max-w-[440px] transition-colors duration-300 ${disabled ? 'text-[#64748B]' : 'text-[#52525B] group-hover:text-[#374151]'}`}
+                    className={`text-[13px] leading-snug max-w-110 transition-colors duration-300 ${disabled ? 'text-[#64748B]' : 'text-[#52525B] group-hover:text-[#374151]'}`}
                 >
                     {desc}
                 </p>

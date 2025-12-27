@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Input from '@components/forms/input';
+
 import styles from './LocationRulesStep.module.css';
 import { usePropertyListingForm } from '../formContext';
+import Input from '@components/forms/Input';
 
 const LocationRulesStep: React.FC = () => {
     const editorRef = useRef<HTMLDivElement>(null);
@@ -220,7 +221,7 @@ const LocationRulesStep: React.FC = () => {
                         onInput={handleInput}
                         onMouseUp={handleSelectionChange}
                         onKeyUp={handleSelectionChange}
-                        className={`${styles.editor} min-h-[120px] p-3 text-sm leading-relaxed focus:outline-none`}
+                        className={`${styles.editor} min-h-30 p-3 text-sm leading-relaxed focus:outline-none`}
                         suppressContentEditableWarning={true}
                         data-placeholder="Enter rules"
                         data-selection-key={selectionKey} // Use selectionKey to avoid lint warning

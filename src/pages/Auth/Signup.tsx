@@ -5,9 +5,10 @@ import { SignupSEO } from '@components/SEO/SEO';
 import { IoEye } from 'react-icons/io5';
 import { IoIosEyeOff } from 'react-icons/io';
 import { useSignupMutation, type SignupPayload } from '@store/api/auth.api';
-import Input from '@components/forms/Input';
+
 import PhoneNumberInput from '@components/forms/PhoneNumberInput';
 import Checkbox from '@components/forms/Checkbox';
+import Input from '@components/forms/Input';
 
 export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -162,7 +163,7 @@ export default function Signup() {
                         <div className="w-full sm:w-auto">
                             <button
                                 type="submit"
-                                className={`w-full sm:w-auto px-6 py-3 rounded-lg bg-secondary text-white hover:opacity-95 transition-all touch-manipulation min-h-[48px] disabled:cursor-not-allowed disabled:opacity-70 flex items-center justify-center gap-2 ${isSubmitting ? 'scale-[0.99] animate-pulse cursor-not-allowed' : ''}`}
+                                className={`w-full sm:w-auto px-6 py-3 rounded-lg bg-secondary text-white hover:opacity-95 transition-all touch-manipulation min-h-12 disabled:cursor-not-allowed disabled:opacity-70 flex items-center justify-center gap-2 ${isSubmitting ? 'scale-[0.99] animate-pulse cursor-not-allowed' : ''}`}
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
@@ -187,7 +188,7 @@ export default function Signup() {
                     {/* Google Sign Up */}
                     <button
                         type="button"
-                        className="w-full bg-[#EAF2FD] text-[#3F3F46] py-3 rounded-lg flex items-center justify-center gap-3 hover:bg-[#E0E9F7] transition-colors touch-manipulation min-h-[48px]"
+                        className="w-full bg-[#EAF2FD] text-[#3F3F46] py-3 rounded-lg flex items-center justify-center gap-3 hover:bg-[#E0E9F7] transition-colors touch-manipulation min-h-12"
                     >
                         <img src="/assets/icons/google.png" alt="Google icon" className="h-5 w-5" />
                         <span className="text-sm sm:text-base">Sign up with Google</span>

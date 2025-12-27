@@ -13,7 +13,7 @@ const mockProperties = [
 const PropertiesPage: React.FC = () => {
     return (
         <div className="pb-10">
-            <div className="mb-6 mt-4 max-w-[1200px] mx-auto">
+            <div className="mb-6 mt-4 max-w-300 mx-auto">
                 <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {mockProperties.map((p) => (
                         <PropertyCard2 key={p.id} id={p.id} name={p.name} address={p.address} tenants={p.tenants} />

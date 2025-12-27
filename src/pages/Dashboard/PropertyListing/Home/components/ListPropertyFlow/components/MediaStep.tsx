@@ -180,7 +180,7 @@ const MediaStep: React.FC<Props> = ({ includeDocs }) => {
                 >
                     {state.video ? (
                         <div className="flex flex-col items-center gap-1">
-                            <span className="font-medium text-[#0A2D50] truncate max-w-[200px]">
+                            <span className="font-medium text-[#0A2D50] truncate max-w-50">
                                 {state.video.file.name}
                             </span>
                             <button

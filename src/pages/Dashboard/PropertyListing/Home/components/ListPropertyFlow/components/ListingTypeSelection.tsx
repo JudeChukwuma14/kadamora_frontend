@@ -1,5 +1,6 @@
 import React from 'react';
-import { type ListingType } from '../';
+import type { ListingType } from '../ListPropertyFlowModal';
+
 
 export interface ListingTypeInfo {
     key: ListingType;
@@ -46,7 +47,7 @@ const ListingTypeSelection: React.FC<Props> = ({ listingTypes, onSelect, onClose
                                 transition-transform duration-300 ease-[cubic-bezier(.4,.14,.3,1)] hover:-translate-y-0.5 active:scale-[0.985]
                                 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40`}
                             >
-                                <span className="flex h-11 w-11 mb-[15px] shrink-0 items-center justify-center rounded-full bg-[#E6F7F0] text-emerald-600 ring-1 ring-[#B7E4D3] shadow-sm">
+                                <span className="flex h-11 w-11 mb-3.75 shrink-0 items-center justify-center rounded-full bg-[#E6F7F0] text-emerald-600 ring-1 ring-[#B7E4D3] shadow-sm">
                                     <img src={iconSrc} alt={t.title + ' icon'} className="h-6 w-6 object-contain" />
                                 </span>
                                 <div className="flex gap-4 w-full">

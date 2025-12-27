@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import ProductCard from '@components/cards/product';
-import PropertyCard from '@components/cards/property';
-import Select from '@components/forms/select';
-import Input from '@components/forms/input';
+
 import { mockProperties } from '../Home/fakedb';
 import { Link } from 'react-router';
-import { getAgentPropertyListings, type AgentPropertyListing } from '@utils/api/propertyListings';
+import { getAgentPropertyListings, type AgentPropertyListing } from '@store/api/propertyListings';
+import ProductCard from '@components/cards/product/ProductCard';
+import PropertyCard from '@components/cards/property/PropertyCard';
+import Input from '@components/forms/Input';
+import Select from '@components/forms/Select';
 
 interface MockListing {
     id: number;
@@ -121,7 +122,7 @@ export default function MyListing() {
                     listing.categoryType,
                     listing.propertySubType,
                 ].some((field) => normalize(field).includes(search)) ||
-                (Array.isArray(listing.amenities) && listing.amenities.some((tag) => normalize(tag).includes(search)));
+                (Array.isArray(listing.amenities) && listing.amenities.some((tag:any) => normalize(tag).includes(search)));
 
             return matchesCategory && matchesType && matchesSearch;
         });

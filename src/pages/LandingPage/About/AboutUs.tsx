@@ -1,10 +1,10 @@
-import Hero from './components/hero';
-import Stats from './components/stats';
-import Teams from './components/teams';
+import LandingPageContainer from "@components/container/LandingPage/LandingPageContainer";
+import { AboutSEO } from "@components/SEO/SEO";
+import Stats from "./components/Stats";
+import Teams from "./components/Teams";
+import ContactUs from "../ContactUs";
+import Hero from "./components/Hero";
 
-import ContactUs from '@components/landingPage/contactus';
-import LandingPageContainer from '@components/containers/LandingPage';
-import { AboutSEO } from '@components/SEO';
 
 export default function AboutUs() {
     return (

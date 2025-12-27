@@ -10,8 +10,8 @@ export default function Hero() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 min-h-[70vh] flex flex-col justify-center">
                 {/* Top section - Company intro */}
                 <div className="text-left mb-5 mt-20">
-                    <div className="backdrop-blur-md bg-gray-800/80 flex items-center mb-6 h-[30px] rounded-[50px] px-4 w-fit">
-                        <img src="/assets/icons/check_mark.png" alt="Check" className="w-[16px] h-[16px] mr-2" />
+                    <div className="backdrop-blur-md bg-gray-800/80 flex items-center mb-6 h-7.5 rounded-[50px] px-4 w-fit">
+                        <img src="/assets/icons/check_mark.png" alt="Check" className="w-4 h-4 mr-2" />
                         <span className="font-medium text-white">Smart Kadamora</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">Kadamora</h1>
@@ -25,7 +25,7 @@ export default function Hero() {
                 </div>
 
                 {/* Bottom section - Mission and Vision */}
-                <div className="grid md:grid-cols-2 gap-8 mt-[30px] md:mt-auto">
+                <div className="grid md:grid-cols-2 gap-8 mt-7.5 md:mt-auto">
                     {/* Our Mission */}
                     <div className="rounded-lg p-0 md:p-6">
                         <div className="flex items-center mb-4">

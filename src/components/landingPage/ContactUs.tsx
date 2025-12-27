@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 export default function ContactUs() {
     return (
         <section
-            className="relative flex items-center justify-center min-h-[400px] md:min-h-[500px] py-16 md:py-20"
+            className="relative flex items-center justify-center min-h-100 md:min-h-125 py-16 md:py-20"
             style={{
                 backgroundImage: `url(/assets/contact_us_bg.jpg)`,
                 backgroundSize: 'cover',
@@ -28,7 +28,7 @@ export default function ContactUs() {
                     <div className="flex justify-center md:justify-end items-center w-full md:w-auto md:py-8">
                         <Link
                             to="/contact"
-                            className="bg-primary hover:bg-primary-600 text-secondary font-semibold h-[40px] w-[200px] flex justify-center items-center md:px-10 md:py-4 rounded-full text-lg md:text-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                            className="bg-primary hover:bg-primary-600 text-secondary font-semibold h-10 w-50 flex justify-center items-center md:px-10 md:py-4 rounded-full text-lg md:text-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
                             Get In Touch
                         </Link>

@@ -7,13 +7,13 @@ export default function Features() {
                         <img
                             src="/assets/african_lady.png"
                             alt="Platform Features"
-                            className="w-full max-w-[450px] h-auto md:w-[450px] md:h-[500px] mx-auto"
+                            className="w-full max-w-112.5 h-auto md:w-112.5 md:h-125 mx-auto"
                             style={{ height: 'auto', maxWidth: '100%' }}
                         />
                     </div>
                     <div className="flex justify-end">
-                        <div className="max-w-[500px]">
-                            <h2 className="mb-6 text-3xl md:text-[50px] font-bold text-secondary md:leading-[65px]">
+                        <div className="max-w-125">
+                            <h2 className="mb-6 text-3xl md:text-[50px] font-bold text-secondary md:leading-16.25">
                                 One Platform, Every Property, Project, and Possibility.
                             </h2>
                             <p className="text-gray-600 mb-8">

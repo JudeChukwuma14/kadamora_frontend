@@ -338,7 +338,7 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
     );
 
     return (
-        <div className="w-full md:w-[1200px] max-w-[100vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-[700px]">
+        <div className="w-full md:w-300 max-w-[100vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-175">
             {/* Desktop sidebar */}
             <div className="hidden md:block">
                 <StepProgress current={current} />
@@ -384,7 +384,7 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
                             ))}
                         </div>
                     </div>
-                    <div className="bg-white md:px-10 px-3 md:py-5 py-0 pb-[10px] border-t border-[#EDF1F5] flex flex-col md:flex-row md:items-center md:justify-between gap-3 sticky md:static bottom-0 z-10">
+                    <div className="bg-white md:px-10 px-3 md:py-5 py-0 pb-2.5 border-t border-[#EDF1F5] flex flex-col md:flex-row md:items-center md:justify-between gap-3 sticky md:static bottom-0 z-10">
                         {submitError && <p className="text-sm text-red-500 font-medium md:mr-auto">{submitError}</p>}
                         <button
                             type="button"

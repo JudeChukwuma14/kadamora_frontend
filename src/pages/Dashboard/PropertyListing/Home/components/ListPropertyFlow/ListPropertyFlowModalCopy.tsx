@@ -121,7 +121,7 @@ const ListPropertyFlowModal: React.FC<Props> = ({ open, onClose }) => {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
             <div
-                className={`relative w-full ${!listingType ? 'max-w-[800px]' : 'max-w-[1080px]'} min-h-[30vh] rounded-[12px] bg-white shadow-xl overflow-hidden animate-[fadeIn_.25s_ease] flex flex-col max-h-[90vh] md:max-h-none`}
+                className={`relative w-full ${!listingType ? 'max-w-200' : 'max-w-270'} min-h-[30vh] rounded-xl bg-white shadow-xl overflow-hidden animate-[fadeIn_.25s_ease] flex flex-col max-h-[90vh] md:max-h-none`}
             >
                 <style>{`@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}`}</style>
                 {/* Close */}

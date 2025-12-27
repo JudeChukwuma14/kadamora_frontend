@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
 import { mockProperties } from '../Home/fakedb';
 import { Link } from 'react-router';
-import Select from '../../../../components/forms/Select';
-import Input from '../../../../components/forms/Input';
-import ProductCard from '../../../../components/cards/product/ProductCard';
+import Select from '@components/forms/Select';
+import ProductCard from '@components/cards/product/ProductCard';
+import Input from '@components/forms/Input';
+
 
 interface ListingItem {
     id: number;

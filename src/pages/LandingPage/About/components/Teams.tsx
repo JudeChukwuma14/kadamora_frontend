@@ -1,5 +1,5 @@
-import TeamCard from '@components/cards/team';
-import { fakeDb } from '@components/fakeDB';
+import TeamCard from "@components/cards/team/TeamCard";
+import { fakeDb } from "@components/fakeDB/fakeDb";
 
 export default function Teams() {
     return (

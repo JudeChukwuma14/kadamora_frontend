@@ -1,4 +1,5 @@
-import { fakeDb } from '@components/fakeDB';
+import { fakeDb } from "@components/fakeDB/fakeDb";
+
 
 export default function Stats() {
     return (

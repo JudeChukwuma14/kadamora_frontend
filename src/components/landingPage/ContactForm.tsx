@@ -1,3 +1,4 @@
+
 import Input from '@components/forms/Input';
 import Textarea from '@components/forms/Textarea';
 import { useState } from 'react';
@@ -31,7 +32,7 @@ export default function ContactForm() {
             <img
                 src="/assets/herosection-Container.png"
                 alt="Contact Background"
-                className="absolute inset-0 w-full h-[500px] object-cover"
+                className="absolute inset-0 w-full h-125 object-cover"
             />
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-3xl lg:text-[70px] font-bold text-gray-900 mb-4">Contact Us</h2>
