@@ -85,13 +85,13 @@ export default function PropertyView() {
 
                             <p className="text-[18px] mb-4">₦ 234,999.00 / year</p>
 
-                            <p className="mb-2 leading-[30px] text-[#6E6D6D]">
+                            <p className="mb-2 leading-7.5 text-[#6E6D6D]">
                                 Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a
                                 odio magna condimentum. amet eget aliquam cursus placerat. Felis morbi arut sed
                                 cursibhur auismod a odio magna condimentum.
                             </p>
                             {/* Location */}
-                            <div className="flex items-center gap-2 text-sm text-[#0A2D50] mb-[15px]">
+                            <div className="flex items-center gap-2 text-sm text-[#0A2D50] mb-3.75">
                                 <MdOutlineLocationOn className="w-5 h-5 text-[#6E6D6D]" />
                                 <a className="text-[#002E62] underline-offset-2 hover:underline" href="#">
                                     Dalaba Street Aminu Kano Cresent, Wuse Zone 2 Abuja, Nigeria
@@ -130,7 +130,7 @@ export default function PropertyView() {
                                     {facilities.map((facility, index) => (
                                         <div
                                             key={index}
-                                            className="w-[120px] h-[81px] mx-auto flex flex-col items-center justify-center shadow-border rounded-lg hover:border-primary transition-colors"
+                                            className="w-30 h-20.25 mx-auto flex flex-col items-center justify-center shadow-border rounded-lg hover:border-primary transition-colors"
                                         >
                                             <img
                                                 src="/assets/icons/bed.png"
@@ -169,7 +169,7 @@ export default function PropertyView() {
                         </div>
 
                         <div className="rounded-[18px] border border-[#E2E8F0] bg-white flex items-center">
-                            <div className="flex items-center justify-between w-full p-[15px]">
+                            <div className="flex items-center justify-between w-full p-3.75">
                                 <div>
                                     <p className="text-[15px] font-semibold text-[#002E62]">
                                         Are you interested in this Property?

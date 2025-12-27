@@ -183,7 +183,7 @@ const InspectionPage: React.FC = () => {
     const days = getWeekDays(weekOffset);
     return (
         <div className="pb-10">
-            <div className="mb-6 mt-4 max-w-[1200px] mx-auto">
+            <div className="mb-6 mt-4 max-w-300 mx-auto">
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-[25px] font-semibold text-[#002E62] leading-snug">Property Management</h1>

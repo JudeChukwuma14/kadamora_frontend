@@ -40,7 +40,7 @@ export default function Preloader({ onLoadingComplete, minLoadingTime = 2000 }: 
     if (!isLoading) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-gray-50 to-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-linear-to-br from-gray-50 to-white">
             {/* Main Container */}
             <div className="flex flex-col items-center space-y-8">
                 {/* Logo Animation Container */}
@@ -76,7 +76,7 @@ export default function Preloader({ onLoadingComplete, minLoadingTime = 2000 }: 
                 {/* Progress Bar */}
                 <div className="w-64 bg-gray-200 rounded-full h-2 overflow-hidden">
                     <div
-                        className="h-full bg-gradient-to-r from-primary to-green-500 rounded-full progress-bar-transition"
+                        className="h-full bg-linear-to-r from-primary to-green-500 rounded-full progress-bar-transition"
                         data-progress={Math.min(progress, 100)}
                         ref={(el) => {
                             if (el) {

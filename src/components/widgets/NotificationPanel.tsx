@@ -65,7 +65,7 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({ open, onClose, no
             {/* Panel */}
             <aside
                 ref={panelRef}
-                className={`absolute right-0 top-0 flex h-full w-full max-w-[640px] flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`absolute right-0 top-0 flex h-full w-full max-w-160 flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : 'translate-x-full'}`}
                 role="dialog"
                 aria-modal="true"
                 aria-label="Notifications"
@@ -95,7 +95,7 @@ const NotificationPanel: React.FC<NotificationPanelProps> = ({ open, onClose, no
                                     >
                                         {t}
                                         {active && (
-                                            <span className="absolute inset-x-0 -bottom-[1px] h-0.5 bg-emerald-500" />
+                                            <span className="absolute inset-x-0 -bottom-px h-0.5 bg-emerald-500" />
                                         )}
                                     </button>
                                 );

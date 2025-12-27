@@ -31,7 +31,7 @@ export const ServiceCard: React.FC<Props> = ({ item }) => {
             <img
                 src={item.icon}
                 alt={item.title}
-                className="h-[74px] w-[74px] object-contain mb-[15px]"
+                className="h-18.5 w-18.5 object-contain mb-3.75"
                 loading="lazy"
             />
 
@@ -46,10 +46,10 @@ export const ServiceCard: React.FC<Props> = ({ item }) => {
 
             {/* Lock icon for inactive items */}
             {isLocked && (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-white/30 to-gray-100/20 rounded-2xl backdrop-blur-[2px] animate-fade-in">
+                <div className="absolute inset-0 flex items-center justify-center bg-linear-to-br from-white/30 to-gray-100/20 rounded-2xl backdrop-blur-[2px] animate-fade-in">
                     {/* Shimmer effect */}
                     <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] animate-shimmer"></div>
+                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full animate-shimmer"></div>
                     </div>
 
                     <div className="relative flex flex-col items-center justify-center text-gray-600 z-10">

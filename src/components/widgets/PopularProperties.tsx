@@ -50,7 +50,7 @@ export default function PopularProperties({ title = 'Popular homes in Ikeja' }) 
                 {/* Property cards horizontal scroll */}
                 <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-hide">
                     {popularHomes.map((property: any) => (
-                        <div key={property.id} className="flex-shrink-0 w-80">
+                        <div key={property.id} className="shrink-0 w-80">
                             <ProductCard property={property} landingPage />
                         </div>
                     ))}

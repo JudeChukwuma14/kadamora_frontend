@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Input from '../../../../components/forms/input';
+
 import StatusCard from './StatusCard';
 import pendingIcon from './icons/pendinf.svg';
 import progressIcon from './icons/progress.svg';
@@ -7,6 +7,7 @@ import scheduledIcon from './icons/scheduled.svg';
 import completedIcon from './icons/completed.svg';
 import RequestCard from '@components/cards/card/RequestCard';
 import type { RequestStatus, Priority } from '@components/cards/card/RequestCard';
+import Input from '@components/forms/Input';
 
 const statusStats = [
     {
@@ -153,7 +154,7 @@ const MaintenancePage: React.FC = () => {
     const [search, setSearch] = useState('');
     return (
         <div className="pb-10">
-            <div className="mb-6 mt-4 max-w-[1200px] mx-auto">
+            <div className="mb-6 mt-4 max-w-300 mx-auto">
                 <div className="mt-4 flex items-center gap-2 flex-wrap">
                     {/* Tabs are rendered in the root layout */}
                 </div>
