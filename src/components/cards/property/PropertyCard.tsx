@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import type { AgentPropertyListing, AgentPropertyMedia } from '@store/api/propertyListings';
+import type { AgentPropertyListing, AgentPropertyMedia } from '@store/api/propertyListings.api';
 
 export interface PropertyCardProps {
     property: AgentPropertyListing;

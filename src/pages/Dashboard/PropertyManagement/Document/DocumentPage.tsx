@@ -5,6 +5,7 @@ import DeleteConfirmationModal from '../../../../components/cards/card/DeleteCon
 import StatusTag from './StatusTag';
 import Input from '@components/forms/Input';
 import Select from '@components/forms/Select';
+import Table, { type TableHeader } from '@components/ui/Table/Table';
 
 const mockDocuments = [
     {

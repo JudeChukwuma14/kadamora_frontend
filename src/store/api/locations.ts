@@ -37,7 +37,7 @@ export const locationApi = baseApi.injectEndpoints({
                 url: '/api/v1/locations/countries',
                 method: 'GET',
             }),
-            providesTags: ['Countries'],
+            providesTags: ['Location'],
         }),
 
         getStatesByCountry: builder.query<StatesResponse, string>({
@@ -45,9 +45,7 @@ export const locationApi = baseApi.injectEndpoints({
                 url: `/api/v1/locations/countries/${countryId}/states`,
                 method: 'GET',
             }),
-            providesTags: (_result, _error, countryId) => [
-                { type: 'States', id: countryId },
-            ],
+            providesTags: ['Location'],
         }),
     }),
 });

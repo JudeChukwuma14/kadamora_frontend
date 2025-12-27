@@ -21,7 +21,7 @@ import {
     type CreatePropertyListingPayload,
     type PropertyFacilitiesPayload,
     type PropertyMediaPayload,
-} from '@store/api/propertyListings.ts';
+} from '@utils/api/propertyListings';
 import CloseButton from '../OnboardingAgent/components/CloseButton.tsx';
 import { uploadFileToStorage } from '../../../../../../utils/firebaseStorage.ts';
 import { PropertyListingFormProvider, usePropertyListingForm, type FacilitySelection, type PropertyListingFormState } from './formContext.tsx';
@@ -372,8 +372,8 @@ async function buildCreatePropertyPayload(
         title: state.title.trim(),
         description: state.description.trim(),
         location: state.location.trim(),
-        countryId: state.countryId || undefined,
-        stateId: state.stateId || undefined,
+        // countryId: state.countryId || undefined,
+        // stateId: state.stateId || undefined,
         propertyType: listingType,
         propertyCategory: state.propertyCategory,
         categoryType: state.categoryType || 'land_listing',

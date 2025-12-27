@@ -1,18 +1,11 @@
 import { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import { useAuth } from '@store/useAuthStore';
+import { useAppSelector } from '@store/hooks';
 
 export default function NotFound() {
     const navigate = useNavigate();
     const location = useLocation();
-    let authContext: ReturnType<typeof useAuth> | null = null;
-    try {
-        authContext = useAuth();
-    } catch (error) {
-        authContext = null;
-    }
-
-    const account = authContext?.account ?? null;
+    const account = useAppSelector((s) => s.auth.user);
 
     const homePath = useMemo(() => {
         if (account || location.pathname.startsWith('/dashboard')) {

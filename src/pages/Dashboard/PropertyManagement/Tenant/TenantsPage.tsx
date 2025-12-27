@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-
-import Table from '../../../../components/ui/Table';
-import type { TableHeader } from '../../../../components/ui/Table';
 import Select from '@components/forms/Select';
 import Input from '@components/forms/Input';
 import DeleteConfirmationModal from '@components/cards/card/DeleteConfirmationModal';
 import CardMenuItem from '@components/cards/card/CardMenuItem';
+import Table, { type TableHeader } from '@components/ui/Table/Table';
 
 const mockTenants = [
     {

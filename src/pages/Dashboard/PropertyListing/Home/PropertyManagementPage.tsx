@@ -8,7 +8,8 @@ import QuickActionCard from './components/QuickActionCard';
 import OnboardingAgentFlowModal from './components/OnboardingAgent/OnboardingAgentFlowModal';
 import VerificationInProgressModal from './components/VerificationInProgressModal';
 import ListPropertyFlowModal from './components/ListPropertyFlow/ListPropertyFlowModal';
-import { getAgentProfile, type AgentProfile } from '@utils/api/propertyAgents';
+import type { AgentProfile } from '@store/api/propertyAgent.api';
+// import { getAgentProfile, type AgentProfile } from '@utils/api/propertyAgents';
 const formatCurrency = (n: number) =>
     new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 2 }).format(n);
 
@@ -37,14 +38,14 @@ const PropertyManagementPage: React.FC = () => {
 
         (async () => {
             try {
-                const response = await getAgentProfile();
-                if (!isMounted) return;
-                const profileData = response.response?.data;
-                if (profileData) {
-                    setAgentProfile(profileData);
-                } else {
-                    setProfileError(response?.message || response.response?.message || 'Unable to load profile');
-                }
+                // const response = await getAgentProfile();
+                // if (!isMounted) return;
+                // const profileData = response.response?.data;
+                // if (profileData) {
+                //     setAgentProfile(profileData);
+                // } else {
+                //     setProfileError(response?.message || response.response?.message || 'Unable to load profile');
+                // }
             } catch (error) {
                 if (!isMounted) return;
                 console.error('Failed to fetch agent profile', error);
