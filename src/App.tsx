@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import { BrowserRouter } from 'react-router';
+import { HelmetProvider } from 'react-helmet-async';
+import Routes from './routes';
+import ScrollToTop from '@components/ScrollToTop';
+import './index.css';
+import Preloader from '@components/Preloader/Preloader';
+import { useGetAccountQuery } from '@store/api/auth.api';
+import { useAppSelector } from '@store/hooks';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+    const [isAppLoading, setIsAppLoading] = useState(true);
+    const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const isAuthenticated = useAppSelector(
+        (state) => state.auth.isAuthenticated
+    );
+
+    /**
+     * Fetch account ONLY if user is authenticated
+     * This keeps the session alive after refresh
+     */
+    useGetAccountQuery(undefined, {
+        skip: !isAuthenticated,
+    });
+
+    /**
+     * Handle first app load + preloader
+     */
+    useEffect(() => {
+        const hasLoaded = sessionStorage.getItem('app-loaded');
+
+        if (hasLoaded) {
+            setIsFirstLoad(false);
+            setIsAppLoading(false);
+        } else {
+            sessionStorage.setItem('app-loaded', 'true');
+        }
+    }, []);
+
+    const handleLoadingComplete = () => {
+        setIsAppLoading(false);
+    };
+
+    /**
+     * Show preloader ONLY on first visit
+     */
+    if (isAppLoading && isFirstLoad) {
+        return (
+            <Preloader
+                onLoadingComplete={handleLoadingComplete}
+                minLoadingTime={1500}
+            />
+        );
+    }
+
+    return (
+        <HelmetProvider>
+            <BrowserRouter>
+                <ScrollToTop />
+                <Routes />
+            </BrowserRouter>
+        </HelmetProvider>
+    );
 }
-
-export default App
