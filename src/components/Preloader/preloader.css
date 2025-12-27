@@ -1,0 +1,85 @@
+/* Preloader Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-delay {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes float-delayed {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(20px) rotate(-180deg);
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fade-in-delay 1s ease-out 0.3s both;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float-delayed 8s ease-in-out infinite;
+}
+
+/* Bounce Animation Delays */
+.bounce-delay-0 {
+    animation: bounce 1s infinite;
+    animation-delay: 0s;
+}
+
+.bounce-delay-1 {
+    animation: bounce 1s infinite;
+    animation-delay: 0.5s;
+}
+
+.bounce-delay-2 {
+    animation: bounce 1s infinite;
+    animation-delay: 1s;
+}
+
+.bounce-delay-3 {
+    animation: bounce 1s infinite;
+    animation-delay: 1.5s;
+}
+
+/* Progress Bar Animation */
+.progress-bar-transition {
+    transition: width 0.3s ease-out;
+}

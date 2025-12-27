@@ -1,0 +1,133 @@
+interface PropertyRaw {
+    id: number;
+    title: string;
+    price: number;
+    img: string;
+    tags: string[];
+    category: string;
+    condition: string;
+    type: string; // Rent | Lease | Sell | Shortlet
+}
+
+export const mockProperties: PropertyRaw[] = [
+    {
+        id: 1,
+        title: 'Smart Estate',
+        price: 12349900,
+        img: '/fakeDB/listing_data_1.png',
+        tags: ['Rent', 'Affordable'],
+        category: 'Residential',
+        condition: 'New',
+        type: 'Rent',
+    },
+    {
+        id: 2,
+        title: 'Hilltop',
+        price: 73499900,
+        img: '/fakeDB/listing_data_2.png',
+        tags: ['Lease', 'Unluxurious'],
+        category: 'Residential',
+        condition: 'New',
+        type: 'Lease',
+    },
+    {
+        id: 3,
+        title: 'Bentley Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_3.png',
+        tags: ['Sell', 'Luxurious'],
+        category: 'Commercial',
+        condition: 'Renovated',
+        type: 'Sell',
+    },
+    {
+        id: 4,
+        title: 'Bentley Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_4.png',
+        tags: ['Sell', 'Luxurious'],
+        category: 'Commercial',
+        condition: 'Renovated',
+        type: 'Sell',
+    },
+    {
+        id: 5,
+        title: 'Ambassador',
+        price: 299973200,
+        img: '/fakeDB/listing_data_5.png',
+        tags: ['Lease', 'Luxurious'],
+        category: 'Residential',
+        condition: 'New',
+        type: 'Lease',
+    },
+    {
+        id: 6,
+        title: 'Bentley Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_6.png',
+        tags: ['Rent', 'Unluxurious'],
+        category: 'Mixed Use',
+        condition: 'Not New',
+        type: 'Rent',
+    },
+    {
+        id: 7,
+        title: 'Janzo Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_7.png',
+        tags: ['Sell', 'Unluxurious'],
+        category: 'Land',
+        condition: 'Renovated',
+        type: 'Sell',
+    },
+    {
+        id: 8,
+        title: 'Bentley Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_8.png',
+        tags: ['Rent', 'Unluxurious'],
+        category: 'Residential',
+        condition: 'Not New',
+        type: 'Rent',
+    },
+    {
+        id: 9,
+        title: 'Balerion',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_2.png',
+        tags: ['Sell', 'Unluxurious'],
+        category: 'Residential',
+        condition: 'New',
+        type: 'Sell',
+    },
+    {
+        id: 10,
+        title: 'Bentley Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_3.png',
+        tags: ['Sell', 'Unluxurious'],
+        category: 'Commercial',
+        condition: 'Renovated',
+        type: 'Sell',
+    },
+    {
+        id: 11,
+        title: 'Chuks Oaks',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_4.png',
+        tags: ['Rent', 'Affordable'],
+        category: 'Residential',
+        condition: 'New',
+        type: 'Rent',
+    },
+    {
+        id: 12,
+        title: 'Bentice Estate',
+        price: 1499973200,
+        img: '/fakeDB/listing_data_5.png',
+        tags: ['Rent', 'Unluxurious'],
+        category: 'Residential',
+        condition: 'New',
+        type: 'Rent',
+    },
+];

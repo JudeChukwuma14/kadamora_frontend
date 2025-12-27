@@ -1,0 +1,64 @@
+/* Custom styles for rich text editor */
+.editor {
+    white-space: pre-wrap;
+}
+
+.editor[data-empty='true']:before {
+    content: attr(data-placeholder);
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.editor:empty:before {
+    content: attr(data-placeholder);
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.editor:focus:before {
+    display: none;
+}
+
+/* List styles */
+.editor ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.editor ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.editor li {
+    margin-bottom: 0.25em;
+    padding-left: 0.25em;
+}
+
+.editor ul ul,
+.editor ol ol,
+.editor ul ol,
+.editor ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Ensure proper spacing for nested lists */
+.editor ul li,
+.editor ol li {
+    line-height: 1.5;
+}
+
+/* Fix for contentEditable lists */
+.editor ul,
+.editor ol {
+    display: block;
+}
+
+.editor li {
+    display: list-item;
+}
