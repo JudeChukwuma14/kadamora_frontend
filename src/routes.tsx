@@ -78,9 +78,9 @@ export default function AppRoutes(){
                     <Route
                         path="dashboard"
                         element={
-                            <RequireAuth>
+                            // <RequireAuth>
                                 <DashboardLayout />
-                            </RequireAuth>
+                            // </RequireAuth>
                         }
                     >
                         <Route index element={<Dashboard />} />
