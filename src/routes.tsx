@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router';
 import { LazyErrorBoundary, EnhancedPageLoader } from './utils/lazyLoading';
-import RequireAuth from '@components/guards/RequireAuth';
+// import RequireAuth from '@components/guards/RequireAuth';
 import RedirectIfAuthenticated from '@components/guards/RedirectIfAuthenticated';
 
 // load layouts
