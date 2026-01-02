@@ -2,7 +2,8 @@ import LandingPageContainer from "@components/container/LandingPage/LandingPageC
 import { AboutSEO } from "@components/SEO/SEO";
 import Stats from "./components/Stats";
 import Teams from "./components/Teams";
-import ContactUs from "../ContactUs";
+import ContactForm from "@components/landingPage/ContactForm";
+import FAQ from "@components/landingPage/FAQ";
 import Hero from "./components/Hero";
 
 
@@ -13,7 +14,10 @@ export default function AboutUs() {
             <LandingPageContainer hero={Hero}>
                 <Stats />
                 <Teams />
-                <ContactUs />
+                <ContactForm />
+                <div className="bg-[#ffffff]">
+                    <FAQ />
+                </div>
             </LandingPageContainer>
         </>
     );

@@ -95,12 +95,12 @@ export default function Header({ isSticky, hasHero = true }: HeaderProps) {
                         <Link to="/about" className={`nav-anim ${getTextClasses(isActivePath('/about'))} relative`}>
                             About Us
                         </Link>
-                        {/* <Link
+                        <Link
                             to="/timeline"
                             className={`nav-anim ${getTextClasses(isActivePath('/timeline'))} relative`}
                         >
                             Timeline
-                        </Link> */}
+                        </Link>
                         <Link to="/contact" className={`nav-anim ${getTextClasses(isActivePath('/contact'))} relative`}>
                             Contact Us
                         </Link>

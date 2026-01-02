@@ -38,6 +38,7 @@ export default function Login() {
         try {
             const response = await triggerLogin(payload).unwrap();
             const data = response.response?.data;
+            console.log(data)
 
             if (data.user?.isVerified === false) {
                 setErrorMessage('Your email is not verified. Please verify your email before logging in.');
@@ -49,7 +50,6 @@ export default function Login() {
                 setErrorMessage('Login response is missing credentials. Please try again.');
                 return;
             }
-
             // saveTokens({ accessToken: data.accessToken, refreshToken: data.refreshToken });
             dispatch(
                 setCredentials({
