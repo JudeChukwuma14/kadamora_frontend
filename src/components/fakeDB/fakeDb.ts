@@ -4,25 +4,25 @@ export const fakeDb = {
       id: 1,
       title: "Facility Management",
       description: "Involves the effective coordination of people, processes, and physical spaces to ensure that buildings and infrastructure operate efficiently.",
-      image: "/fakeDB/service_data_1.png"
+      image: "/assets/images/service_data_1.png"
     },
     {
       id: 2,
       title: "Project Management and Construction Management",
       description: "This ensure successful planning and execution of projects, particularly in the construction and infrastructure sectors.",
-      image: "/fakeDB/service_data_2.png"
+      image: "/assets/images/service_data_2.png"
     },
     {
       id: 3,
       title: "Property Management and Property Listing",
       description: "This allows agents, developers, and property owners to showcase residential, commercial, or short-let properties to a wide audience with ease.",
-      image: "/fakeDB/service_data_3.png"
+      image: "/assets/images/service_data_3.png"
     },
     {
       id: 4,
       title: "Facility Management",
       description: "Involves the effective coordination of people, processes, and physical spaces to ensure that buildings and infrastructure operate efficiently.",
-      image: "/fakeDB/service_data_1.png"
+      image: "/assets/images/service_data_1.png"
     },
   ],
   listings: [
@@ -37,7 +37,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Sell",
       subCategory: "Luxurious",
-      image: "/fakeDB/listing_data_1.png"
+      image: "/assets/images/listing_data_1.png"
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Lease",
       subCategory: "Luxurious",
-      image: "/fakeDB/listing_data_2.png"
+      image: "/assets/images/listing_data_2.png"
     },
     {
       id: 3,
@@ -63,7 +63,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Lease",
       subCategory: "Luxurious",
-      image: "/fakeDB/listing_data_3.png"
+      image: "/assets/images/listing_data_3.png"
     },
     {
       id: 4,
@@ -76,7 +76,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Rent",
       subCategory: "Ultra-Luxurious",
-      image: "/fakeDB/listing_data_4.png"
+      image: "/assets/images/listing_data_4.png"
     },
     {
       id: 5,
@@ -89,7 +89,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Rent",
       subCategory: "Ultra-Luxurious",
-      image: "/fakeDB/listing_data_5.png"
+      image: "/assets/images/listing_data_5.png"
     },
     {
       id: 6,
@@ -102,7 +102,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Rent",
       subCategory: "Ultra-Luxurious",
-      image: "/fakeDB/listing_data_6.png"
+      image: "/assets/images/listing_data_6.png"
     },
     {
       id: 7,
@@ -115,7 +115,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Rent",
       subCategory: "Ultra-Luxurious",
-      image: "/fakeDB/listing_data_7.png"
+      image: "/assets/images/listing_data_7.png"
     },
     {
       id: 8,
@@ -128,7 +128,7 @@ export const fakeDb = {
       description: "Felis sed amet eget aliquam cursus placerat. Risus morbi arut sed cursibhur auismod a odio magna condimentum.",
       category: "Sell",
       subCategory: "Luxurious",
-      image: "/fakeDB/listing_data_8.png"
+      image: "/assets/images/listing_data_8.png"
     }
   ],
   propertyMedia: [
@@ -266,14 +266,14 @@ export const fakeDb = {
       id: 1,
       name: "Mrs Charles John",
       role: "Chairman/Chief Executive Officer",
-      image: "/fakeDB/charles.png",
+      image: "/assets/images/charles.png",
       bio: "Lorem ipsum dolor sit amet consectetur. Rhoncus scelerisque mollis mauris faucibus. Id magna rhoncus magna sagittis tristique pretium mauris libero. Fermentum sed posuere sit volutpate amet. Eget dis proin nunc mollibitum quis dignissim nulla cursus magna. Interdum scelerisque sed elit tempus in nunc nulla dolor sem. Ut nunc aliquam arcu amet nisl neque commodo ut vestibulum. Tellus velit lacus tristique leo eisu elit. Auctor suscipit elit tincidunt molestae ut magna vel ultrices ante. Facilisi cursus lorem sit placis. A nisl tincidunt lacus venenatis arcs. Nisl id ante nibsan purus pretium risqui condimentum blandit. Tempus faucibus imperdiet odio enus cursus elementum. Justo nibh blandit donec ullamcorper massa nu quentla libero. In ex est magna ullam lacells volutpate odales nunc nulla. Mauris elementum vivulo ipsum et libero cursque molid artu."
     },
     {
       id: 2,
       name: "Mr Samuel Nuel",
       role: "Chairman/Chief Executive Officer",
-      image: "/fakeDB/samuel.png",
+      image: "/assets/images/samuel.png",
       bio: "Lorem ipsum dolor sit amet consectetur. Rhoncus scelerisque mollis mauris faucibus. Id magna rhoncus magna sagittis tristique pretium mauris libero. Fermentum sed posuere sit volutpate amet. Eget dis proin nunc mollibitum quis dignissim nulla cursus magna. Interdum scelerisque sed elit tempus in nunc nulla dolor sem. Ut nunc aliquam arcu amet nisl neque commodo ut vestibulum. Tellus velit lacus tristique leo eisu elit. Auctor suscipit elit tincidunt molestae ut magna vel ultrices ante. Facilisi cursus lorem sit placis. A nisl tincidunt lacus venenatis arcs. Nisl id ante nibsan purus pretium risqui condimentum blandit. Tempus faucibus imperdiet odio enus cursus elementum. Justo nibh blandit donec ullamcorper massa nu quentla libero. In ex est magna ullam lacells volutpate odales nunc nulla. Mauris elementum vivulo ipsum et libero cursque molid artu."
     }
   ],
@@ -319,7 +319,7 @@ export const fakeDb = {
           id: 1,
           user: { 
             name: 'Charles Bankole', 
-            avatar: '/fakeDB/charles.png' 
+            avatar: '/fakeDB/images/charles.png' 
           },
           date: '2024-01-15T11:00:00Z',
           content: 'Great work on the property inspection! The attention to detail really shows.',
@@ -332,7 +332,7 @@ export const fakeDb = {
           id: 2,
           user: { 
             name: 'Janeth Felix', 
-            avatar: '/fakeDB/samuel.png' 
+            avatar: '/fakeDB/images/samuel.png' 
           },
           date: '2024-01-15T12:30:00Z',
           content: 'This facility management system has revolutionized how we handle property maintenance.',
@@ -343,7 +343,7 @@ export const fakeDb = {
         }
       ],
       shares: 3,
-      image: "/fakeDB/listing_data_1.png",
+      image: "/fakeDB/images/listing_data_1.png",
       type: "property_update"
     },
     {
@@ -361,7 +361,7 @@ export const fakeDb = {
           id: 3,
           user: { 
             name: 'Michael Chen', 
-            avatar: '/fakeDB/charles.png' 
+            avatar: '/assets/images/charles.png' 
           },
           date: '2024-01-14T16:00:00Z',
           content: 'Beautiful property! Is it still available for viewing?',
@@ -374,7 +374,7 @@ export const fakeDb = {
           id: 4,
           user: { 
             name: 'Aisha Okafor', 
-            avatar: '/fakeDB/samuel.png' 
+            avatar: '/assets/images/samuel.png' 
           },
           date: '2024-01-14T17:15:00Z',
           content: 'The location in Kigali is perfect for families. Great listing!',
@@ -548,7 +548,7 @@ export const fakeDb = {
         id: 1,
         user: { 
           name: 'Charles Bankole', 
-          avatar: '/fakeDB/charles.png' 
+          avatar: '/assets/images/charles.png' 
         },
         date: '2024-01-15T11:00:00Z',
         content: 'Great work on the property inspection! The attention to detail really shows.',
@@ -561,7 +561,7 @@ export const fakeDb = {
         id: 2,
         user: { 
           name: 'Janeth Felix', 
-          avatar: '/fakeDB/samuel.png' 
+          avatar: '/assets/images/samuel.png' 
         },
         date: '2024-01-15T12:30:00Z',
         content: 'This facility management system has revolutionized how we handle property maintenance.',
@@ -576,7 +576,7 @@ export const fakeDb = {
         id: 3,
         user: { 
           name: 'Michael Chen', 
-          avatar: '/fakeDB/charles.png' 
+          avatar: '/assets/images/charles.png' 
         },
         date: '2024-01-14T16:00:00Z',
         content: 'Beautiful property! Is it still available for viewing?',
@@ -589,7 +589,7 @@ export const fakeDb = {
         id: 4,
         user: { 
           name: 'Aisha Okafor', 
-          avatar: '/fakeDB/samuel.png' 
+          avatar: '/fakeDB/images/samuel.png' 
         },
         date: '2024-01-14T17:15:00Z',
         content: 'The location in Kigali is perfect for families. Great listing!',
@@ -604,7 +604,7 @@ export const fakeDb = {
         id: 5,
         user: { 
           name: 'Charles Bankole', 
-          avatar: '/fakeDB/charles.png' 
+          avatar: '/fakeDB/images/charles.png' 
         },
         date: '2025-06-16T11:00:00Z',
         content: 'Felis sed amet eget aliquam cursus placerat. Risus morbi erat sed curabitur euismod a odio magna condimentum.amet eget aliquam cursus placerat.',
@@ -617,7 +617,7 @@ export const fakeDb = {
         id: 6,
         user: { 
           name: 'Janeth Felix', 
-          avatar: '/fakeDB/samuel.png' 
+          avatar: '/fakeDB/images/samuel.png' 
         },
         date: '2025-06-16T12:30:00Z',
         content: 'Felis sed amet eget aliquam cursus placerat. Risus morbi erat sed curabitur euismod a odio magna condimentum.',
@@ -630,7 +630,7 @@ export const fakeDb = {
         id: 7,
         user: { 
           name: 'Kabiru John', 
-          avatar: '/fakeDB/charles.png' 
+          avatar: '/fakeDB/images/charles.png' 
         },
         date: '2025-06-17T09:00:00Z',
         content: 'Risus morbi erat sed curabitur euismod a odio magna condimentum.',

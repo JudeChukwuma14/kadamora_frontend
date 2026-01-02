@@ -332,14 +332,14 @@ const TimelineCard: React.FC<TimelineCardProps> = ({ post, onClose }) => {
                                         aria-label="Add attachment"
                                         className="p-2 hover:text-gray-600 transition-colors bg-[#F4F4F4] "
                                     >
-                                        <img src="/icons/plus.png" alt="Add" width="20" height="20" className="" />
+                                        <img src="assets/icons/plus.png" alt="Add" width="20" height="20" className="" />
                                     </button>
                                     <button
                                         title="Emoji"
                                         aria-label="Insert emoji"
                                         className="p-1 hover:text-gray-600 transition-colors"
                                     >
-                                        <img src="/icons/emoji.png" alt="Emoji" width="20" height="20" className="" />
+                                        <img src="assets/icons/emoji.png" alt="Emoji" width="20" height="20" className="" />
                                     </button>
                                     <button
                                         title="Mention"
@@ -347,7 +347,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({ post, onClose }) => {
                                         className="p-1 hover:text-gray-600 transition-colors"
                                     >
                                         <img
-                                            src="/icons/mention.png"
+                                            src="assets/icons/mention.png"
                                             alt="Mention"
                                             width="20"
                                             height="20"
@@ -359,7 +359,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({ post, onClose }) => {
                                         aria-label="Add video"
                                         className="p-1 hover:text-gray-600 transition-colors"
                                     >
-                                        <img src="/icons/video.png" alt="Video" width="20" height="20" className="" />
+                                        <img src="assets/icons/video.png" alt="Video" width="20" height="20" className="" />
                                     </button>
                                     <button
                                         title="Voice"
@@ -367,7 +367,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({ post, onClose }) => {
                                         className="p-1 hover:text-gray-600 transition-colors"
                                     >
                                         <img
-                                            src="/icons/microphone.png"
+                                            src="assets/icons/microphone.png"
                                             alt="Microphone"
                                             width="20"
                                             height="20"
@@ -380,7 +380,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({ post, onClose }) => {
                                         className="p-1 hover:text-gray-600 transition-colors"
                                     >
                                         <img
-                                            src="/icons/document.png"
+                                            src="assets/icons/document.png"
                                             alt="Document"
                                             width="20"
                                             height="20"
