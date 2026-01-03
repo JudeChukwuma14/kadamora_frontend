@@ -16,7 +16,7 @@ export const baseApi = createApi({
         }
     }),
     tagTypes: [
-        'Account', 'AgentProfile', 'Property', 'Location'
+        'Account', 'AgentProfile', 'Property', 'Location', 'Notification', 'PropertyMgt'
     ],
     endpoints: () => ({})
 })

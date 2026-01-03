@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import CloseButton from './CloseButton';
-import { uploadAgentDocuments, type UploadAgentDocumentsPayload } from '@utils/api/propertyAgents';
-import { isAxiosError } from 'axios';
+import {  useUploadAgentDocumentsMutation, type UploadAgentDocumentsPayload } from '@store/api/propertyAgent.api';
 import './legalDocsProgress.css';
 import { uploadFileToStorage } from '../../../../../../../utils/firebaseStorage';
 import StepProgress from './StepProgress';
@@ -200,7 +199,10 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
     });
     const [fieldErrors, setFieldErrors] = useState<Partial<Record<DocumentCategory, string>>>({});
     const [submitError, setSubmitError] = useState<string | null>(null);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    // const [isSubmitting, setIsSubmitting] = useState(false);
+    const [uploadAgentDocuments, { isLoading: isSubmitting }] =
+    useUploadAgentDocumentsMutation();
+
 
     const validateFiles = useCallback((files: File[]): string | null => {
         if (files.length === 0) return null;
@@ -289,7 +291,6 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
                 return;
             }
 
-            setIsSubmitting(true);
             setProgressByCategory({
                 governmentId: filesByCategory.governmentId.map(() => 0),
                 businessCertificate: filesByCategory.businessCertificate.map(() => 0),
@@ -318,21 +319,15 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
                 }
 
                 const payload = buildPayload(uploadResults);
-                await uploadAgentDocuments(payload);
+                await uploadAgentDocuments(payload).unwrap();
                 submit();
-            } catch (error) {
-                if (isAxiosError(error)) {
-                    const apiResponse = error.response?.data as
-                        | { message?: string; response?: { message?: string } }
-                        | undefined;
-                    const apiMessage = apiResponse?.message || apiResponse?.response?.message;
-                    setSubmitError(apiMessage || 'Unable to upload documents. Please try again.');
-                } else {
-                    setSubmitError('Unable to upload documents. Please try again.');
-                }
-            } finally {
-                setIsSubmitting(false);
-            }
+            } catch (error: any) {
+                const apiMessage =
+                error?.data?.message ||
+                error?.data?.response?.message ||
+                'Unable to upload documents. Please try again.';
+            setSubmitError(apiMessage);
+            } 
         },
         [buildPayload, ensureRequiredFiles, filesByCategory, submit, updateProgress],
     );

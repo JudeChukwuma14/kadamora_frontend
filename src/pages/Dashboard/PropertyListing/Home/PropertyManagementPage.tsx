@@ -1,15 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { mockProperties } from './fakedb';
-import { isAxiosError } from 'axios';
 import FilterBlocks, { MobileFilterModal } from './FilterBlocks';
 import ProductCard from '../../../../components/cards/product/ProductCard';
 import QuickActionCard from './components/QuickActionCard';
 import OnboardingAgentFlowModal from './components/OnboardingAgent/OnboardingAgentFlowModal';
 import VerificationInProgressModal from './components/VerificationInProgressModal';
 import ListPropertyFlowModal from './components/ListPropertyFlow/ListPropertyFlowModal';
-import type { AgentProfile } from '@store/api/propertyAgent.api';
-// import { getAgentProfile, type AgentProfile } from '@utils/api/propertyAgents';
+import { useGetAgentProfileQuery } from '@store/api/propertyAgent.api';
 const formatCurrency = (n: number) =>
     new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN', maximumFractionDigits: 2 }).format(n);
 
@@ -21,51 +19,27 @@ const PropertyManagementPage: React.FC = () => {
     const [onboardingOpen, setOnboardingOpen] = useState(false);
     const [onboardingStep, setOnboardingStep] = useState(0);
     const [verificationInProgressOpen, setVerificationInProgressOpen] = useState(false);
-    const [agentProfile, setAgentProfile] = useState<AgentProfile | null>(null);
-    const [isLoadingProfile, setIsLoadingProfile] = useState(true);
-    const [profileError, setProfileError] = useState<string | null>(null);
-    const [profileNotFound, setProfileNotFound] = useState(false);
+ 
     const filtered = useMemo(
         () => mockProperties.filter((p) => p.title.toLowerCase().includes(search.toLowerCase())),
         [search],
     );
+    const {
+  data: agentProfile,
+  isLoading: isLoadingProfile,
+  isError,
+  error,
+} = useGetAgentProfileQuery();
 
-    useEffect(() => {
-        let isMounted = true;
-        setIsLoadingProfile(true);
-        setProfileError(null);
-        setProfileNotFound(false);
+const profileNotFound =
+  isError &&
+  'status' in (error as any) &&
+  (error as any).status === 404;
 
-        (async () => {
-            try {
-                // const response = await getAgentProfile();
-                // if (!isMounted) return;
-                // const profileData = response.response?.data;
-                // if (profileData) {
-                //     setAgentProfile(profileData);
-                // } else {
-                //     setProfileError(response?.message || response.response?.message || 'Unable to load profile');
-                // }
-            } catch (error) {
-                if (!isMounted) return;
-                console.error('Failed to fetch agent profile', error);
-                if (isAxiosError(error) && error.response?.status === 404) {
-                    setAgentProfile(null);
-                    setProfileNotFound(true);
-                } else {
-                    setProfileError('Unable to load agent profile. Please try again later.');
-                }
-            } finally {
-                if (isMounted) {
-                    setIsLoadingProfile(false);
-                }
-            }
-        })();
-
-        return () => {
-            isMounted = false;
-        };
-    }, []);
+const profileError =
+  isError && !profileNotFound
+    ? 'Unable to load agent profile. Please try again later.'
+    : null;
 
     type VerificationStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
     const normalizedStatus = useMemo<VerificationStatus | null>(() => {

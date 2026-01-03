@@ -1,12 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import CloseButton from './CloseButton';
-import { registerAgent, type RegisterAgentPayload } from '@utils/api/propertyAgents';
-import { isAxiosError } from 'axios';
 import StepProgress from './StepProgress';
 
 import Select from '@components/forms/Select';
 import Textarea from '@components/forms/Textarea';
 import Input from '@components/forms/Input';
+import { useRegisterAgentMutation, type RegisterAgentPayload } from '@store/api/propertyAgent.api';
 
 
 interface ProfessionalDetailsFormProps {
@@ -48,7 +47,8 @@ const ProfessionalDetailsForm: React.FC<ProfessionalDetailsFormProps> = ({ next,
     const [formValues, setFormValues] = useState<Record<FormField, string>>(initialForm);
     const [fieldErrors, setFieldErrors] = useState<Partial<Record<FormField, string>>>({});
     const [submitError, setSubmitError] = useState<string | null>(null);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [registerAgent, { isLoading }] = useRegisterAgentMutation();
+
 
     const updateField = useCallback((field: FormField, value: string) => {
         setFormValues((prev) => ({ ...prev, [field]: value }));
@@ -110,22 +110,12 @@ const ProfessionalDetailsForm: React.FC<ProfessionalDetailsFormProps> = ({ next,
                 linkedinProfile: formValues.linkedinProfile.trim() || undefined,
             };
 
-            setIsSubmitting(true);
             try {
-                await registerAgent(payload);
+                await registerAgent(payload).unwrap();
                 next();
-            } catch (error) {
-                if (isAxiosError(error)) {
-                    const apiResponse = error.response?.data as
-                        | { message?: string; response?: { message?: string } }
-                        | undefined;
-                    const apiMessage = apiResponse?.message || apiResponse?.response?.message;
-                    setSubmitError(apiMessage || 'Unable to save details. Please try again.');
-                } else {
-                    setSubmitError('Unable to save details. Please try again.');
-                }
-            } finally {
-                setIsSubmitting(false);
+            } catch (error: any) {
+                const apiMessage = error?.data?.message || error?.data?.response?.message || 'Unable to save details. Please try again.';
+                setSubmitError(apiMessage);
             }
         },
         [formValues, next, validateForm],
@@ -255,11 +245,11 @@ const ProfessionalDetailsForm: React.FC<ProfessionalDetailsFormProps> = ({ next,
                         {submitError && <p className="text-sm text-red-500 font-medium md:mr-auto">{submitError}</p>}
                         <button
                             type="submit"
-                            disabled={isSubmitting}
+                            disabled={isLoading}
                             className="bg-[#002A54] hover:bg-[#013463] disabled:bg-[#7B8AA0] disabled:cursor-not-allowed text-white text-[15px] font-semibold rounded-md md:px-7 px-4 md:py-2.5 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-[#013463]/40 w-full md:w-auto"
-                            aria-busy={isSubmitting}
+                            aria-busy={isLoading}
                         >
-                            {isSubmitting ? 'Saving...' : 'Save & Continue'}
+                            {isLoading ? 'Saving...' : 'Save & Continue'}
                         </button>
                     </div>
                 </form>
