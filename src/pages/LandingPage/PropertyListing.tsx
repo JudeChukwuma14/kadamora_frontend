@@ -1,5 +1,3 @@
-// import { fakeDb } from '@components/fakeDB/index';
-// import ProductCard from '@components/cards/product';
 import PopularProperties from '@components/widgets/PopularProperties';
 import LandingPageContainer from '@components/container/LandingPage/LandingPageContainer';
 import { ListingsSEO } from '@components/SEO/SEO';

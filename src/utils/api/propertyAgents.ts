@@ -46,7 +46,7 @@ export interface AgentProfileResponse {
 export async function getAgentProfile(): Promise<AgentProfileResponse> {
     return request<AgentProfileResponse>({
         method: 'GET',
-        url: '/api/v1/property-agents/profile',
+        url: '/api/v1/agents/profile',
     });
 }
 
@@ -72,7 +72,7 @@ export interface RegisterAgentResponse {
 export async function registerAgent(payload: RegisterAgentPayload): Promise<RegisterAgentResponse> {
     return request<RegisterAgentResponse, RegisterAgentPayload>({
         method: 'POST',
-        url: '/api/v1/property-agents/register',
+        url: '/api/v1/agents/register',
         data: payload,
     });
 }
@@ -96,7 +96,7 @@ export async function uploadAgentDocuments(
 ): Promise<UploadAgentDocumentsResponse> {
     return request<UploadAgentDocumentsResponse, UploadAgentDocumentsPayload>({
         method: 'POST',
-        url: '/api/v1/property-agents/upload-documents',
+        url: '/api/v1/agents/upload-documents',
         data: payload,
     });
 }

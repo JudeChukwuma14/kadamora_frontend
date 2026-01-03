@@ -21,13 +21,20 @@ function getFirebaseConfig(): FirebaseConfig {
     // } as FirebaseConfig;
 
     const config: FirebaseConfig = {
-        apiKey: 'AIzaSyBQ3orH1u2If0Mae2-np49rzeB-VOuTmXU',
-        authDomain: 'clusma.firebaseapp.com',
-        projectId: 'clusma',
-        storageBucket: 'clusma.firebasestorage.app',
-        messagingSenderId: '375813556830',
-        appId: '1:375813556830:web:ba7866a123f91f1dbd02cf',
-        measurementId: 'G-56TE7J8T7P',
+        // apiKey: 'AIzaSyBQ3orH1u2If0Mae2-np49rzeB-VOuTmXU',
+        // authDomain: 'clusma.firebaseapp.com',
+        // projectId: 'clusma',
+        // storageBucket: 'clusma.firebasestorage.app',
+        // messagingSenderId: '375813556830',
+        // appId: '1:375813556830:web:ba7866a123f91f1dbd02cf',
+        // measurementId: 'G-56TE7J8T7P',
+          apiKey: "AIzaSyAzq7qddjbdS0-W7B_Kjn2iO3oltSH34wc",
+            authDomain: "kadamora-cfba2.firebaseapp.com",
+            projectId: "kadamora-cfba2",
+            storageBucket: "kadamora-cfba2.firebasestorage.app",
+            messagingSenderId: "340591978898",
+            appId: "1:340591978898:web:80226e8d1f32e1920cf94b",
+            measurementId: "G-7SHDGKWYQB"
     } as FirebaseConfig;
 
     const missing = Object.entries(config)

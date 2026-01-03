@@ -93,9 +93,9 @@ export interface UploadAgentDocumentsResponse {
 
 export const propertyAgentApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
-        getAgentProfile: builder.query<AgentProfileResponse, void>({
+        getAgentProfile: builder.query<AgentProfile, void>({
             query: () => ({
-                url: "/api/v1/property-agents/profile",
+                url: "/api/v1/agents/profile",
                 method: "GET",
             }),
             providesTags: ["AgentProfile"],
@@ -103,7 +103,7 @@ export const propertyAgentApi = baseApi.injectEndpoints({
 
         registerAgent: builder.mutation<RegisterAgentResponse, RegisterAgentPayload>({
             query: (payload) => ({
-                url: "/api/v1/property-agents/register",
+                url: "/api/v1/agents/register",
                 method: "POST",
                 body: payload,
             }),
@@ -115,7 +115,7 @@ export const propertyAgentApi = baseApi.injectEndpoints({
             UploadAgentDocumentsPayload
         >({
             query: (payload) => ({
-                url: "/api/v1/property-agents/upload-documents",
+                url: "/api/v1/agents/upload-documents",
                 method: "POST",
                 body: payload,
             }),
