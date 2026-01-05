@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
-import { isAxiosError } from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { IoEye } from 'react-icons/io5';
 import { IoIosEyeOff } from 'react-icons/io';
 import { useLoginMutation, type LoginPayload } from '@store/api/auth.api';
@@ -36,8 +35,7 @@ export default function Login() {
 
         try {
             const response = await triggerLogin(payload).unwrap();
-            const data = response.response?.data;
-            console.log(data)
+            const data = response.data;
 
             if (data.user?.isVerified === false) {
                 setErrorMessage('Your email is not verified. Please verify your email before logging in.');
@@ -49,7 +47,6 @@ export default function Login() {
                 setErrorMessage('Login response is missing credentials. Please try again.');
                 return;
             }
-            // saveTokens({ accessToken: data.accessToken, refreshToken: data.refreshToken });
             dispatch(
                 setCredentials({
                     user: data.user,
@@ -58,13 +55,13 @@ export default function Login() {
                 }),
             );
             navigate(redirectTo, { replace: true });
-        } catch (err) {
-            if (isAxiosError(err)) {
-                const apiMessage = (err.response?.data as { message?: string })?.message;
-                setErrorMessage(apiMessage || 'Unable to log you in with those details. Please try again.');
-            } else {
-                setErrorMessage('Something went wrong. Please try again later.');
-            }
+        } catch (err: any) {
+          const message =
+            err?.data?.message ||
+            err?.error ||
+            'Unable to log you in with those details. Please try again.';
+
+        setErrorMessage(message);
         } finally {
             setIsSubmitting(false);
         }

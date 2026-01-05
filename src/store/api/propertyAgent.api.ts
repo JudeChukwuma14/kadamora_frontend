@@ -35,15 +35,13 @@ export interface AgentProfile {
     companyPhoneNumber?: string;
     companyDescription?: string;
     companyWebsite?: string | null;
+    data?: any
 }
 
 export interface AgentProfileResponse {
-    response: {
         data: AgentProfile;
-        message?: string;
-    };
-    statusCode: number;
-    message?: string;
+        message?: string; 
+        statusCode: number;
 }
 
 /* =======================
@@ -62,11 +60,8 @@ export interface RegisterAgentPayload {
 }
 
 export interface RegisterAgentResponse {
-    message: string;
-    response?: {
         data: AgentProfile;
         message?: string;
-    };
 }
 
 /* =======================
@@ -80,11 +75,8 @@ export interface UploadAgentDocumentsPayload {
 }
 
 export interface UploadAgentDocumentsResponse {
-    message: string;
-    response?: {
         data?: unknown;
         message?: string;
-    };
 }
 
 /* =======================

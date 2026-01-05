@@ -37,7 +37,7 @@ export default function RequireAuth({ children }: RequireAuthProps) {
         return children;
     }
 
-    if (!data?.response?.data) {
+    if (!data?.data) {
         return <Navigate to="/auth/login" replace state={{ from: redirectTo }} />;
     }
 

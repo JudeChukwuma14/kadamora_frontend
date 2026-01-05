@@ -23,16 +23,17 @@ export interface VerifyAccountData {
     user?: any;
 }
 export interface VerifyAccountResponse {
-    response: {
         data: VerifyAccountData;
-    };
     statusCode: number;
 }
 export interface LoginPayload {
     email: string;
     password: string;
 }
-export type LoginResponse = VerifyAccountResponse;
+export type LoginResponse = {
+        data: VerifyAccountData;
+    statusCode: number;
+};
 
 export interface ForgotPasswordPayload {
     email: string;
@@ -62,9 +63,7 @@ export interface AccountData {
     updatedAt: string;
 }
 export interface AccountResponse {
-    response: {
-        data: AccountData;
-    };
+        data: AccountData;    
     statusCode: number;
 }
 export const authApi = baseApi.injectEndpoints({

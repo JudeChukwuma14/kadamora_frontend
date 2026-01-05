@@ -25,12 +25,13 @@ const PropertyManagementPage: React.FC = () => {
         [search],
     );
     const {
-  data: agentProfile,
+  data: agentProfiles,
   isLoading: isLoadingProfile,
   isError,
   error,
 } = useGetAgentProfileQuery();
 
+const agentProfile = agentProfiles?.data
 const profileNotFound =
   isError &&
   'status' in (error as any) &&
@@ -41,57 +42,66 @@ const profileError =
     ? 'Unable to load agent profile. Please try again later.'
     : null;
 
-    type VerificationStatus = 'PENDING' | 'APPROVED' | 'REJECTED';
-    const normalizedStatus = useMemo<VerificationStatus | null>(() => {
-        const rawStatus = agentProfile?.status ?? agentProfile?.verificationStatus;
-        if (!rawStatus || typeof rawStatus !== 'string') return null;
-        const value = rawStatus.toUpperCase() as VerificationStatus;
-        if (value === 'PENDING' || value === 'APPROVED' || value === 'REJECTED') {
-            return value;
+    const normalizedStatus = useMemo (() => {
+        const status = agentProfile?.status;
+        if(!status || typeof status !== 'string') return null;
+        const upperStatus = status.toUpperCase();
+        if(upperStatus === 'PENDING' || upperStatus === 'APPROVED' || upperStatus === 'REJECTED'){
+            return upperStatus
         }
-        return null;
-    }, [agentProfile?.status, agentProfile?.verificationStatus]);
+        if(upperStatus === "UNDER_REVIEW"){
+            return 'PENDING'
+        }
+            return null
+    }, [agentProfile?.status])
 
     const hasUploadedDocs = useMemo(() => {
         if (!agentProfile?.documents) return false;
-        return Object.values(agentProfile.documents).some((entry) =>
-            Array.isArray(entry) ? entry.length > 0 : Boolean(entry),
-        );
+        const docs = agentProfile.documents;
+        return (
+            (docs.governmentId && docs.governmentId.length > 0) ||
+            (docs.businessCertificate && docs.businessCertificate.length > 0) ||
+            (docs.proofOdAddress && docs.proofOdAddress.length > 0) 
+        )
     }, [agentProfile?.documents]);
 
     const normalizedProfileStatus = useMemo(() => {
-        const raw = agentProfile?.status ?? agentProfile?.verificationStatus;
+        const raw = agentProfile?.status 
         return typeof raw === 'string' ? raw.trim().toLowerCase() : null;
-    }, [agentProfile?.status, agentProfile?.verificationStatus]);
+    }, [agentProfile?.status]);
 
     const isUnderReview = normalizedProfileStatus === 'under_review';
 
-    const isAgentVerified = agentProfile?.isVerified ?? normalizedStatus === 'APPROVED';
+    // const isAgentVerified = agentProfile?.isVerified ?? normalizedStatus === 'APPROVED';
+    const isAgentVerified = useMemo(() => {
+        if(agentProfile?.isVerified === true) return true;
+        const status = agentProfile?.status?.toUpperCase()
+        return status === 'APPROVED';
+    }, [agentProfile])
 
     const determineOnboardingEntryStep = useCallback(() => {
         if (!agentProfile) {
             return 0;
         }
-        const statusForFlow = normalizedStatus ?? 'PENDING';
+        if(isAgentVerified){
+            return 0;
+        }
+         if (isUnderReview || (normalizedStatus === 'PENDING' && hasUploadedDocs)) {
+        return 0; 
+        }
         const hasProfessionalDetails = Boolean(
-            agentProfile.agencyCompanyName && agentProfile.position && agentProfile.registrationLicenseNumber,
-        );
-
-        if (statusForFlow === 'REJECTED') {
-            return 1;
+            agentProfile.agencyCompanyName && 
+            agentProfile.position && 
+            agentProfile.registrationLicenseNumber
+        )
+        if(!hasProfessionalDetails){
+            return 1
         }
-
-        if (statusForFlow === 'PENDING') {
-            if (!hasProfessionalDetails) {
-                return 1;
-            }
-            if (!hasUploadedDocs) {
-                return 2;
-            }
+        if(!hasUploadedDocs){
+            return 2
         }
-
         return 0;
-    }, [agentProfile, hasUploadedDocs, normalizedStatus]);
+    }, [agentProfile, hasUploadedDocs, isAgentVerified, isUnderReview, normalizedStatus]);
 
     const openOnboardingFlow = useCallback(() => {
         const stepToOpen = determineOnboardingEntryStep();

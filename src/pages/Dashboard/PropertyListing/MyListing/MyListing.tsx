@@ -62,7 +62,7 @@ export default function MyListing() {
         isError,
     } = useGetAgentPropertyListingsQuery();
 
-    const agentListings: AgentPropertyListing[] = data?.response?.data ?? [];
+    const agentListings: AgentPropertyListing[] = data?.data ?? [];
     const hasAgentListings = agentListings.length > 0;
 
     /* ========================
