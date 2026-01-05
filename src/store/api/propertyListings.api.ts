@@ -56,11 +56,9 @@ export interface CreatePropertyListingPayload {
 }
 
 export interface CreatePropertyListingResponse {
-    message?: string;
-    response?: {
+
         data?: unknown;
         message?: string;
-    };
 }
 
 export interface AgentPropertyMedia {
@@ -121,11 +119,8 @@ export interface AgentPropertyListing {
 }
 
 export interface AgentPropertyListingsResponse {
-    response?: {
         data?: AgentPropertyListing[];
         message?: string;
-    };
-    message?: string;
 }
 
 export const propertyListingApi = baseApi.injectEndpoints({

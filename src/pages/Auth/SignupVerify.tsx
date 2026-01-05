@@ -75,7 +75,7 @@ export default function SignupVerify() {
 
         try {
             const result = await triggerVerifyAccount({ token, email }).unwrap();
-            const data = result.response?.data;
+            const data = result?.data;
 
             if (!data?.accessToken || !data?.refreshToken) {
                 setErrorMessage('Verification response is missing credentials. Please try again.');

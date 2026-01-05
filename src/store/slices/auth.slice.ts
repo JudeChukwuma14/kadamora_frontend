@@ -37,28 +37,12 @@ const authSlice = createSlice({
         },
     },
     extraReducers(builder) {
-        // builder.addMatcher(
-        //     authApi.endpoints.login.matchFulfilled,
-        //     (state, { payload }) => {
-        //         const data = payload.response?.data;
-
-        //         if (!data?.accessToken || !data?.refreshToken) return;
-
-        //         saveTokens({
-        //             accessToken: data.accessToken,
-        //             refreshToken: data.refreshToken,
-        //         });
-
-        //         state.accessToken = data.accessToken;
-        //         state.user = data.user;
-        //         state.isAuthenticated = true;
-        //     },
-        // );
-
         builder.addMatcher(
             authApi.endpoints.verifyAccount.matchFulfilled,
             (state, { payload }) => {
-                const data = payload.response?.data;
+                console.log("payload", payload)
+                const data = payload.data;
+                console.log(data)
                 if (!data?.accessToken || !data?.refreshToken) return;
                 saveTokens({
                     accessToken: data.accessToken,
@@ -73,7 +57,7 @@ const authSlice = createSlice({
         builder.addMatcher(
             authApi.endpoints.getAccount.matchFulfilled,
             (state, { payload }) => {
-                state.user = payload.response.data;
+                state.user = payload.data;
                 state.isAuthenticated = true;
             },
         );

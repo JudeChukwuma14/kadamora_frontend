@@ -2,8 +2,8 @@ import React, { useCallback, useMemo, useState } from 'react';
 import CloseButton from './CloseButton';
 import {  useUploadAgentDocumentsMutation, type UploadAgentDocumentsPayload } from '@store/api/propertyAgent.api';
 import './legalDocsProgress.css';
-import { uploadFileToStorage } from '../../../../../../../utils/firebaseStorage';
 import StepProgress from './StepProgress';
+import { useUploadFilesMutation } from '@store/api/upload.api';
 
 interface LegalDocsFormProps {
     current: number;
@@ -31,13 +31,6 @@ const ALLOWED_TYPES = new Set([
     'image/png',
     'image/jpeg',
 ]);
-
-function createUniqueObjectKey(fileName: string, category: DocumentCategory): string {
-    const safeName = fileName.replace(/\s+/g, '-');
-    const uniqueId =
-        typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : Date.now().toString();
-    return `property-agents/${category}/${uniqueId}-${safeName}`;
-}
 
 function quantizeProgress(value: number): number {
     if (!Number.isFinite(value)) return 0;
@@ -199,7 +192,7 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
     });
     const [fieldErrors, setFieldErrors] = useState<Partial<Record<DocumentCategory, string>>>({});
     const [submitError, setSubmitError] = useState<string | null>(null);
-    // const [isSubmitting, setIsSubmitting] = useState(false);
+    const [uploadFiles] = useUploadFilesMutation()
     const [uploadAgentDocuments, { isLoading: isSubmitting }] =
     useUploadAgentDocumentsMutation();
 
@@ -250,13 +243,7 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
         setSubmitError(null);
     }, []);
 
-    const updateProgress = useCallback((category: DocumentCategory, index: number, percent: number) => {
-        setProgressByCategory((prev) => {
-            const updated = [...prev[category]];
-            updated[index] = percent;
-            return { ...prev, [category]: updated };
-        });
-    }, []);
+
 
     const ensureRequiredFiles = useCallback(() => {
         const errors: Partial<Record<DocumentCategory, string>> = {};
@@ -269,68 +256,133 @@ const LegalDocsForm: React.FC<LegalDocsFormProps> = ({ current, prev, submit, on
         return Object.keys(errors).length === 0;
     }, [categories, filesByCategory]);
 
-    const buildPayload = useCallback((urls: Record<DocumentCategory, string[]>): UploadAgentDocumentsPayload => {
-        const payload: UploadAgentDocumentsPayload = {
-            governmentId: urls.governmentId,
-        };
-        if (urls.businessCertificate.length > 0) {
-            payload.businessCertificate = urls.businessCertificate;
-        }
-        if (urls.proofOfAddress.length > 0) {
-            payload.proofOfAddress = urls.proofOfAddress;
-        }
-        return payload;
-    }, []);
+        const handleSubmit = useCallback(
+            async (event: React.FormEvent<HTMLFormElement>) => {
+                event.preventDefault();
+                setSubmitError(null);
+                if (!ensureRequiredFiles()) return;
 
-    const handleSubmit = useCallback(
-        async (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault();
-            setSubmitError(null);
+                try {
+                    const uploadResults: Record<DocumentCategory, string[]> = {
+                        governmentId: [],
+                        businessCertificate: [],
+                        proofOfAddress: [],
+                    };
 
-            if (!ensureRequiredFiles()) {
-                return;
-            }
+                    // Upload all files per category
+                    for (const category of Object.keys(filesByCategory) as DocumentCategory[]) {
+                        const files = filesByCategory[category];
+                        if (!files?.length) continue;
 
-            setProgressByCategory({
-                governmentId: filesByCategory.governmentId.map(() => 0),
-                businessCertificate: filesByCategory.businessCertificate.map(() => 0),
-                proofOfAddress: filesByCategory.proofOfAddress.map(() => 0),
-            });
+                        // Set initial progress to 0
+                        setProgressByCategory((prev) => ({
+                            ...prev,
+                            [category]: files.map(() => 0),
+                        }));
 
-            try {
-                const uploadResults: Record<DocumentCategory, string[]> = {
-                    governmentId: [],
-                    businessCertificate: [],
-                    proofOfAddress: [],
-                };
+                        const formData = new FormData();
+                        files.forEach((file) => {
+                            formData.append('files', file);
+                        });
 
-                for (const category of Object.keys(filesByCategory) as DocumentCategory[]) {
-                    const files = filesByCategory[category];
-                    if (files.length === 0) continue;
+                        console.log(`Uploading ${files.length} file(s) for ${category}...`);
 
-                    const urls = await Promise.all(
-                        files.map((file, index) =>
-                            uploadFileToStorage(file, createUniqueObjectKey(file.name, category), (percent) =>
-                                updateProgress(category, index, percent),
-                            ),
-                        ),
-                    );
-                    uploadResults[category] = urls;
+                        try {
+                            const res = await uploadFiles(formData).unwrap();
+                            console.log(`Response for ${category}:`, res);
+                            if (res.data?.urls && Array.isArray(res.data.urls)) {
+                                uploadResults[category] = res.data.urls;
+                                
+                                // Verify we got the expected number of URLs
+                                if (res.data.urls.length !== files.length) {
+                                    console.warn(
+                                        `Warning: Uploaded ${files.length} files but received ${res.data.urls.length} URLs for ${category}`
+                                    );
+                                }
+                                
+                                setProgressByCategory((prev) => ({
+                                    ...prev,
+                                    [category]: files.map(() => 100),
+                                }));
+                                
+                                console.log(`Successfully uploaded ${files.length} file(s) for ${category}:`, res.data.urls);
+                            } else {
+                                throw new Error(
+                                    `Upload failed for ${category}: Invalid response format. Expected data.urls array, got ${JSON.stringify(res.data)}`
+                                );
+                            }
+                            
+                        } catch (uploadError: any) {
+                            console.error(`Upload error for ${category}:`, uploadError);
+                            
+                            // Extract specific error message
+                            const errorMessage = 
+                                uploadError?.data?.message ||
+                                uploadError?.data?.response?.message ||
+                                uploadError?.message ||
+                                `Failed to upload ${category} documents`;
+                            
+                            throw new Error(errorMessage);
+                        }
+                    }
+
+                    // Validate required documents have URLs
+                    if (uploadResults.governmentId.length === 0) {
+                        throw new Error('Government ID is required but no upload URLs were received');
+                    }
+
+                    // Create payload with arrays of URLs
+                    const payload: UploadAgentDocumentsPayload = {
+                        governmentId: uploadResults.governmentId,
+                    };
+
+                    if (uploadResults.businessCertificate.length > 0) {
+                        payload.businessCertificate = uploadResults.businessCertificate;
+                    }
+
+                    if (uploadResults.proofOfAddress.length > 0) {
+                        payload.proofOfAddress = uploadResults.proofOfAddress;
+                    }
+                    
+                    const agentResponse = await uploadAgentDocuments(payload).unwrap();
+                    console.log('Agent documents uploaded successfully:', agentResponse);
+                    
+                    // Clear all files after successful submission
+                    setFilesByCategory({
+                        governmentId: [],
+                        businessCertificate: [],
+                        proofOfAddress: [],
+                    });
+                    
+                    setProgressByCategory({
+                        governmentId: [],
+                        businessCertificate: [],
+                        proofOfAddress: [],
+                    });
+                    
+                    submit();
+
+                } catch (error: any) {
+                    console.error('Submission error:', error);
+                    
+                    setProgressByCategory({
+                        governmentId: [],
+                        businessCertificate: [],
+                        proofOfAddress: [],
+                    });
+                    
+                    const apiMessage = 
+                        error?.data?.message ||
+                        error?.data?.response?.message ||
+                        error?.message ||
+                        'Unable to upload documents. Please try again.';
+                    
+                    setSubmitError(apiMessage);
+                    
                 }
-
-                const payload = buildPayload(uploadResults);
-                await uploadAgentDocuments(payload).unwrap();
-                submit();
-            } catch (error: any) {
-                const apiMessage =
-                error?.data?.message ||
-                error?.data?.response?.message ||
-                'Unable to upload documents. Please try again.';
-            setSubmitError(apiMessage);
-            } 
-        },
-        [buildPayload, ensureRequiredFiles, filesByCategory, submit, updateProgress],
-    );
+            },
+            [filesByCategory, uploadFiles, ensureRequiredFiles, submit, uploadAgentDocuments],
+        );
 
     return (
         <div className="w-full md:w-300 max-w-[100vw] rounded-xl overflow-hidden flex bg-white shadow-[0_4px_32px_-4px_rgba(15,23,42,0.12)] md:flex-row flex-col md:h-175">
